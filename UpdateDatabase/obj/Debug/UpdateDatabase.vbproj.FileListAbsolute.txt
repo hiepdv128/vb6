@@ -1,0 +1,5 @@
+F:\Github\vb6\UpdateDatabase\bin\Debug\DemoProject.exe.config
+F:\Github\vb6\UpdateDatabase\obj\Debug\UpdateDatabase.vbproj.ResolveComReference.cache
+F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.exe
+F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.xml
+F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.pdb
