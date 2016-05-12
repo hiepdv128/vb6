@@ -11,3 +11,7 @@ F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.exe
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.xml
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.pdb
+C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\bin\Debug\DoAnThiTracNghiem.exe.config
+C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.exe
+C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.xml
+C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.pdb
