@@ -3,3 +3,10 @@ F:\Github\vb6\UpdateDatabase\obj\Debug\UpdateDatabase.vbproj.ResolveComReference
 F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.exe
 F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.xml
 F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.pdb
+F:\Github\vb6\UpdateDatabase\bin\Debug\DemoProject.exe
+F:\Github\vb6\UpdateDatabase\bin\Debug\DemoProject.pdb
+F:\Github\vb6\UpdateDatabase\bin\Debug\DemoProject.xml
+F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.DataUpdate.resources
+F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.Resources.resources
+F:\Github\vb6\UpdateDatabase\obj\Debug\DemoProject.ViewData.resources
+F:\Github\vb6\UpdateDatabase\obj\Debug\UpdateDatabase.vbproj.GenerateResource.Cache

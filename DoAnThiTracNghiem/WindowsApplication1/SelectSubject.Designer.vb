@@ -22,25 +22,25 @@ Partial Class selectSubject
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbSubject = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtNumOfQuestion = New System.Windows.Forms.TextBox()
+        Me.txtMinute = New System.Windows.Forms.TextBox()
+        Me.txtSecond = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'ComboBox1
+        'cmbSubject
         '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(298, 74)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(184, 33)
-        Me.ComboBox1.TabIndex = 0
+        Me.cmbSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSubject.FormattingEnabled = True
+        Me.cmbSubject.Location = New System.Drawing.Point(298, 74)
+        Me.cmbSubject.Name = "cmbSubject"
+        Me.cmbSubject.Size = New System.Drawing.Size(184, 33)
+        Me.cmbSubject.TabIndex = 0
         '
         'Label1
         '
@@ -72,29 +72,29 @@ Partial Class selectSubject
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Thời gian"
         '
-        'TextBox1
+        'txtNumOfQuestion
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(298, 146)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(160, 31)
-        Me.TextBox1.TabIndex = 4
+        Me.txtNumOfQuestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNumOfQuestion.Location = New System.Drawing.Point(298, 146)
+        Me.txtNumOfQuestion.Name = "txtNumOfQuestion"
+        Me.txtNumOfQuestion.Size = New System.Drawing.Size(160, 31)
+        Me.txtNumOfQuestion.TabIndex = 4
         '
-        'TextBox2
+        'txtMinute
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(298, 209)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(35, 31)
-        Me.TextBox2.TabIndex = 4
+        Me.txtMinute.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMinute.Location = New System.Drawing.Point(298, 209)
+        Me.txtMinute.Name = "txtMinute"
+        Me.txtMinute.Size = New System.Drawing.Size(35, 31)
+        Me.txtMinute.TabIndex = 4
         '
-        'TextBox3
+        'txtSecond
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(362, 209)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(35, 31)
-        Me.TextBox3.TabIndex = 4
+        Me.txtSecond.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSecond.Location = New System.Drawing.Point(362, 209)
+        Me.txtSecond.Name = "txtSecond"
+        Me.txtSecond.Size = New System.Drawing.Size(35, 31)
+        Me.txtSecond.TabIndex = 4
         '
         'Label4
         '
@@ -121,28 +121,28 @@ Partial Class selectSubject
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(693, 369)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtSecond)
+        Me.Controls.Add(Me.txtMinute)
+        Me.Controls.Add(Me.txtNumOfQuestion)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmbSubject)
         Me.Name = "selectSubject"
         Me.Text = "Chọn bài thi"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbSubject As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNumOfQuestion As System.Windows.Forms.TextBox
+    Friend WithEvents txtMinute As System.Windows.Forms.TextBox
+    Friend WithEvents txtSecond As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class
