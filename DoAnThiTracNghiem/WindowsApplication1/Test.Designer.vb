@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class questionText
+Partial Class Test
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,7 +29,6 @@ Partial Class questionText
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.rbtAnswerA = New System.Windows.Forms.RadioButton()
         Me.lblAnswerA = New System.Windows.Forms.Label()
         Me.rbtAnswerB = New System.Windows.Forms.RadioButton()
@@ -40,7 +39,7 @@ Partial Class questionText
         Me.lblAnswerD = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblQuestion = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.flpButtonQues = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -95,19 +94,11 @@ Partial Class questionText
         Me.Button4.Text = ">"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(26, 133)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(99, 396)
-        Me.DataGridView1.TabIndex = 15
-        '
         'rbtAnswerA
         '
         Me.rbtAnswerA.AutoSize = True
         Me.rbtAnswerA.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerA.Location = New System.Drawing.Point(46, 105)
+        Me.rbtAnswerA.Location = New System.Drawing.Point(23, 104)
         Me.rbtAnswerA.Name = "rbtAnswerA"
         Me.rbtAnswerA.Size = New System.Drawing.Size(14, 13)
         Me.rbtAnswerA.TabIndex = 1
@@ -118,7 +109,7 @@ Partial Class questionText
         '
         Me.lblAnswerA.AutoSize = True
         Me.lblAnswerA.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerA.Location = New System.Drawing.Point(81, 105)
+        Me.lblAnswerA.Location = New System.Drawing.Point(58, 104)
         Me.lblAnswerA.Name = "lblAnswerA"
         Me.lblAnswerA.Size = New System.Drawing.Size(51, 18)
         Me.lblAnswerA.TabIndex = 2
@@ -128,7 +119,7 @@ Partial Class questionText
         '
         Me.rbtAnswerB.AutoSize = True
         Me.rbtAnswerB.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerB.Location = New System.Drawing.Point(46, 180)
+        Me.rbtAnswerB.Location = New System.Drawing.Point(23, 179)
         Me.rbtAnswerB.Name = "rbtAnswerB"
         Me.rbtAnswerB.Size = New System.Drawing.Size(14, 13)
         Me.rbtAnswerB.TabIndex = 3
@@ -139,7 +130,7 @@ Partial Class questionText
         '
         Me.lblAnswerB.AutoSize = True
         Me.lblAnswerB.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerB.Location = New System.Drawing.Point(81, 180)
+        Me.lblAnswerB.Location = New System.Drawing.Point(58, 179)
         Me.lblAnswerB.Name = "lblAnswerB"
         Me.lblAnswerB.Size = New System.Drawing.Size(51, 18)
         Me.lblAnswerB.TabIndex = 4
@@ -149,7 +140,7 @@ Partial Class questionText
         '
         Me.rbtAnswerC.AutoSize = True
         Me.rbtAnswerC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerC.Location = New System.Drawing.Point(46, 252)
+        Me.rbtAnswerC.Location = New System.Drawing.Point(23, 251)
         Me.rbtAnswerC.Name = "rbtAnswerC"
         Me.rbtAnswerC.Size = New System.Drawing.Size(14, 13)
         Me.rbtAnswerC.TabIndex = 5
@@ -160,7 +151,7 @@ Partial Class questionText
         '
         Me.lblAnswerC.AutoSize = True
         Me.lblAnswerC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerC.Location = New System.Drawing.Point(81, 252)
+        Me.lblAnswerC.Location = New System.Drawing.Point(58, 251)
         Me.lblAnswerC.Name = "lblAnswerC"
         Me.lblAnswerC.Size = New System.Drawing.Size(51, 18)
         Me.lblAnswerC.TabIndex = 6
@@ -170,7 +161,7 @@ Partial Class questionText
         '
         Me.rbtAnswerD.AutoSize = True
         Me.rbtAnswerD.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerD.Location = New System.Drawing.Point(46, 329)
+        Me.rbtAnswerD.Location = New System.Drawing.Point(23, 328)
         Me.rbtAnswerD.Name = "rbtAnswerD"
         Me.rbtAnswerD.Size = New System.Drawing.Size(14, 13)
         Me.rbtAnswerD.TabIndex = 7
@@ -181,7 +172,7 @@ Partial Class questionText
         '
         Me.lblAnswerD.AutoSize = True
         Me.lblAnswerD.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerD.Location = New System.Drawing.Point(81, 329)
+        Me.lblAnswerD.Location = New System.Drawing.Point(58, 328)
         Me.lblAnswerD.Name = "lblAnswerD"
         Me.lblAnswerD.Size = New System.Drawing.Size(51, 18)
         Me.lblAnswerD.TabIndex = 8
@@ -199,9 +190,9 @@ Partial Class questionText
         Me.GroupBox1.Controls.Add(Me.lblAnswerA)
         Me.GroupBox1.Controls.Add(Me.rbtAnswerA)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(181, 133)
+        Me.GroupBox1.Location = New System.Drawing.Point(211, 133)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(767, 414)
+        Me.GroupBox1.Size = New System.Drawing.Size(737, 414)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Visible = False
@@ -215,12 +206,20 @@ Partial Class questionText
         Me.lblQuestion.TabIndex = 9
         Me.lblQuestion.Text = "question"
         '
-        'questionText
+        'flpButtonQues
+        '
+        Me.flpButtonQues.Font = New System.Drawing.Font("Palatino Linotype", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.flpButtonQues.Location = New System.Drawing.Point(12, 35)
+        Me.flpButtonQues.Name = "flpButtonQues"
+        Me.flpButtonQues.Size = New System.Drawing.Size(190, 572)
+        Me.flpButtonQues.TabIndex = 14
+        '
+        'Test
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1219, 619)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.flpButtonQues)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
@@ -228,9 +227,8 @@ Partial Class questionText
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Name = "questionText"
+        Me.Name = "Test"
         Me.Text = "Kiểm Tra"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -243,7 +241,6 @@ Partial Class questionText
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents rbtAnswerA As System.Windows.Forms.RadioButton
     Friend WithEvents lblAnswerA As System.Windows.Forms.Label
     Friend WithEvents rbtAnswerB As System.Windows.Forms.RadioButton
@@ -254,5 +251,6 @@ Partial Class questionText
     Friend WithEvents lblAnswerD As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents lblQuestion As System.Windows.Forms.Label
+    Friend WithEvents flpButtonQues As System.Windows.Forms.FlowLayoutPanel
 
 End Class

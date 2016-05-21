@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class selectSubject
+Partial Class SelectSubject
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,13 +28,16 @@ Partial Class selectSubject
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtNumOfQuestion = New System.Windows.Forms.TextBox()
         Me.txtMinute = New System.Windows.Forms.TextBox()
-        Me.txtSecond = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnBeginTest = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmbSubject
         '
+        Me.cmbSubject.AutoCompleteCustomSource.AddRange(New String() {"Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True"})
+        Me.cmbSubject.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cmbSubject.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.cmbSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbSubject.FormattingEnabled = True
         Me.cmbSubject.Location = New System.Drawing.Point(298, 74)
@@ -79,22 +82,17 @@ Partial Class selectSubject
         Me.txtNumOfQuestion.Name = "txtNumOfQuestion"
         Me.txtNumOfQuestion.Size = New System.Drawing.Size(160, 31)
         Me.txtNumOfQuestion.TabIndex = 4
+        Me.txtNumOfQuestion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtMinute
         '
-        Me.txtMinute.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMinute.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtMinute.Font = New System.Drawing.Font("Baskerville Old Face", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMinute.Location = New System.Drawing.Point(298, 209)
         Me.txtMinute.Name = "txtMinute"
-        Me.txtMinute.Size = New System.Drawing.Size(35, 31)
+        Me.txtMinute.Size = New System.Drawing.Size(160, 31)
         Me.txtMinute.TabIndex = 4
-        '
-        'txtSecond
-        '
-        Me.txtSecond.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSecond.Location = New System.Drawing.Point(362, 209)
-        Me.txtSecond.Name = "txtSecond"
-        Me.txtSecond.Size = New System.Drawing.Size(35, 31)
-        Me.txtSecond.TabIndex = 4
+        Me.txtMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
         '
@@ -109,28 +107,37 @@ Partial Class selectSubject
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(339, 204)
+        Me.Label5.Location = New System.Drawing.Point(304, 254)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(19, 25)
-        Me.Label5.TabIndex = 3
-        Me.Label5.Text = "-"
+        Me.Label5.Size = New System.Drawing.Size(128, 13)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "*Thời gian tính bằng phút"
         '
-        'selectSubject
+        'btnBeginTest
+        '
+        Me.btnBeginTest.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBeginTest.Location = New System.Drawing.Point(269, 295)
+        Me.btnBeginTest.Name = "btnBeginTest"
+        Me.btnBeginTest.Size = New System.Drawing.Size(149, 38)
+        Me.btnBeginTest.TabIndex = 6
+        Me.btnBeginTest.Text = "Vào thi"
+        Me.btnBeginTest.UseVisualStyleBackColor = True
+        '
+        'SelectSubject
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(693, 369)
-        Me.Controls.Add(Me.txtSecond)
+        Me.Controls.Add(Me.btnBeginTest)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtMinute)
         Me.Controls.Add(Me.txtNumOfQuestion)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbSubject)
-        Me.Name = "selectSubject"
+        Me.Name = "SelectSubject"
         Me.Text = "Chọn bài thi"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -142,7 +149,7 @@ Partial Class selectSubject
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtNumOfQuestion As System.Windows.Forms.TextBox
     Friend WithEvents txtMinute As System.Windows.Forms.TextBox
-    Friend WithEvents txtSecond As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents btnBeginTest As System.Windows.Forms.Button
 End Class

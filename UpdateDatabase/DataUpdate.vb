@@ -49,15 +49,26 @@ Public Class DataUpdate
             Dim change As Boolean = False
             Dim id_qs As Integer = getLastIDQuestion(edtIDSubject.Text) + 1
             Dim id_as As Integer = 1
+            Dim correct As Integer
 
             max_cell = UBound(arr_cell, 1)
             For i = 1 To max_cell
-                str = arr_cell.GetValue(i, 1)
-                If (str.Contains(":")) Then
+                str = arr_cell.GetValue(i, 1).ToString.Trim
+
+                'check row is question
+                If (str.Contains(":") Or str.Contains("?")) Then
                     change = False
-                    dgvQuestion.Rows.Add(edtIDSubject.Text, id_qs, str.Trim())
+                    dgvQuestion.Rows.Add(edtIDSubject.Text, id_qs, str)
                 Else
-                    dgvAnswer.Rows.Add(id_qs, id_qs & "" & id_as, str.Trim(), 0)
+                    If (str.Substring(str.Length - 1).Equals("*")) Then
+                        correct = 1
+                        'delete symbol '*'
+                        str = str.Substring(0, str.Length - 1)
+                    Else
+                        correct = 0
+                    End If
+
+                    dgvAnswer.Rows.Add(id_qs, id_qs & "" & id_as, str, correct)
                     If (id_as < 4) Then
                         id_as = id_as + 1
                     Else
@@ -110,7 +121,7 @@ Public Class DataUpdate
                 cmd.Parameters.AddWithValue("@idsubject", row.Cells("idsubjectquestion").Value)
                 cmd.Parameters.AddWithValue("@idquestion", row.Cells("idquestion").Value)
                 content = row.Cells("contentquestion").Value
-                content = content.Substring(InStr(content, " "))
+                content = content.Substring(InStr(content, " ")).Trim
                 cmd.Parameters.AddWithValue("@content", content)
                 cmd.ExecuteNonQuery()
             End Using
@@ -125,7 +136,7 @@ Public Class DataUpdate
                 cmd.Parameters.AddWithValue("@IdSubject", row.Cells("IDQuestionAnswer").Value)
                 cmd.Parameters.AddWithValue("@IDQuestion", row.Cells("IDAnswer").Value)
                 content = row.Cells("ContentAnswer").Value
-                content = content.Substring(InStr(content, " "))
+                content = content.Substring(InStr(content, " ")).Trim
                 cmd.Parameters.AddWithValue("@Content", content)
                 cmd.Parameters.AddWithValue("@Correct", row.Cells("Correct").Value)
                 cmd.ExecuteNonQuery()
@@ -135,7 +146,6 @@ Public Class DataUpdate
 
         con.Close()
         MessageBox.Show("Records inserted.")
-
 
     End Sub
 

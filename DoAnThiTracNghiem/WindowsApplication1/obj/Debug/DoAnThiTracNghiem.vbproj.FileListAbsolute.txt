@@ -5,7 +5,6 @@ F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\bin\Debug\DoAnThiTracNghiem.
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.about.resources
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.login.resources
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.Resources.resources
-F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.questionText.resources
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.selectSubject.resources
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.vbproj.GenerateResource.Cache
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.exe
@@ -15,3 +14,4 @@ C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\bin\Deb
 C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.exe
 C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.xml
 C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.pdb
+F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.Test.resources

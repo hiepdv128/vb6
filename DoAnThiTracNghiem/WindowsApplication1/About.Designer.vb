@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class about
+Partial Class About
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,12 +24,12 @@ Partial Class about
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'about
+        'About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(618, 400)
-        Me.Name = "about"
+        Me.Name = "About"
         Me.Text = "About"
         Me.ResumeLayout(False)
 
