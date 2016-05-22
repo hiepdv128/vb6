@@ -169,16 +169,19 @@ Public Class DataUpdate
         Dim constring As String = "Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True"
         Dim con As New SqlConnection(constring)
         con.Open()
-        Dim cmd As New SqlCommand("select namesubject from subject where idsubject = @idsubject", con)
-        cmd.Parameters.AddWithValue("@idsubject", idSubject)
-        Dim result As String
-        result = cmd.ExecuteScalar().ToString
+        Dim cmd As New SqlCommand("select namesubject from subject where idsubject = '" & idSubject & "'", con)
 
-        If (Not String.IsNullOrEmpty(result)) Then
-            edtNameSubject.Text = result
-            Return True
-        End If
-        con.Close()
+        Try
+            Dim result As String = cmd.ExecuteScalar().ToString
+
+            If (Not String.IsNullOrEmpty(result)) Then
+                edtNameSubject.Text = result
+                Return True
+            End If
+            con.Close()
+        Catch ex As Exception
+            Return False
+        End Try
         Return False
     End Function
 

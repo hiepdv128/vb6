@@ -29,18 +29,15 @@ Partial Class Test
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.rbtAnswerA = New System.Windows.Forms.RadioButton()
-        Me.lblAnswerA = New System.Windows.Forms.Label()
-        Me.rbtAnswerB = New System.Windows.Forms.RadioButton()
-        Me.lblAnswerB = New System.Windows.Forms.Label()
-        Me.rbtAnswerC = New System.Windows.Forms.RadioButton()
-        Me.lblAnswerC = New System.Windows.Forms.Label()
-        Me.rbtAnswerD = New System.Windows.Forms.RadioButton()
-        Me.lblAnswerD = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.lblQuestion = New System.Windows.Forms.Label()
         Me.flpButtonQues = New System.Windows.Forms.FlowLayoutPanel()
-        Me.GroupBox1.SuspendLayout()
+        Me.rbtAnswerA = New System.Windows.Forms.RadioButton()
+        Me.rbtAnswerB = New System.Windows.Forms.RadioButton()
+        Me.rbtAnswerC = New System.Windows.Forms.RadioButton()
+        Me.rbtAnswerD = New System.Windows.Forms.RadioButton()
+        Me.lblQuestion = New System.Windows.Forms.Label()
+        Me.grbQuestion = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.grbQuestion.SuspendLayout()
         Me.SuspendLayout()
         '
         'CheckBox1
@@ -94,143 +91,123 @@ Partial Class Test
         Me.Button4.Text = ">"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'flpButtonQues
+        '
+        Me.flpButtonQues.Font = New System.Drawing.Font("Palatino Linotype", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.flpButtonQues.Location = New System.Drawing.Point(12, 21)
+        Me.flpButtonQues.Name = "flpButtonQues"
+        Me.flpButtonQues.Size = New System.Drawing.Size(190, 537)
+        Me.flpButtonQues.TabIndex = 14
+        '
         'rbtAnswerA
         '
         Me.rbtAnswerA.AutoSize = True
-        Me.rbtAnswerA.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerA.Location = New System.Drawing.Point(23, 104)
+        Me.rbtAnswerA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtAnswerA.Location = New System.Drawing.Point(52, 111)
+        Me.rbtAnswerA.MinimumSize = New System.Drawing.Size(500, 50)
         Me.rbtAnswerA.Name = "rbtAnswerA"
-        Me.rbtAnswerA.Size = New System.Drawing.Size(14, 13)
-        Me.rbtAnswerA.TabIndex = 1
+        Me.rbtAnswerA.Size = New System.Drawing.Size(500, 50)
+        Me.rbtAnswerA.TabIndex = 10
         Me.rbtAnswerA.TabStop = True
+        Me.rbtAnswerA.Text = "txt"
         Me.rbtAnswerA.UseVisualStyleBackColor = True
-        '
-        'lblAnswerA
-        '
-        Me.lblAnswerA.AutoSize = True
-        Me.lblAnswerA.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerA.Location = New System.Drawing.Point(58, 104)
-        Me.lblAnswerA.Name = "lblAnswerA"
-        Me.lblAnswerA.Size = New System.Drawing.Size(51, 18)
-        Me.lblAnswerA.TabIndex = 2
-        Me.lblAnswerA.Text = "Label1"
         '
         'rbtAnswerB
         '
         Me.rbtAnswerB.AutoSize = True
-        Me.rbtAnswerB.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerB.Location = New System.Drawing.Point(23, 179)
+        Me.rbtAnswerB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtAnswerB.Location = New System.Drawing.Point(52, 198)
+        Me.rbtAnswerB.MaximumSize = New System.Drawing.Size(500, 50)
         Me.rbtAnswerB.Name = "rbtAnswerB"
-        Me.rbtAnswerB.Size = New System.Drawing.Size(14, 13)
-        Me.rbtAnswerB.TabIndex = 3
+        Me.rbtAnswerB.Size = New System.Drawing.Size(38, 20)
+        Me.rbtAnswerB.TabIndex = 12
         Me.rbtAnswerB.TabStop = True
+        Me.rbtAnswerB.Text = "txt"
+        Me.rbtAnswerB.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.rbtAnswerB.UseVisualStyleBackColor = True
-        '
-        'lblAnswerB
-        '
-        Me.lblAnswerB.AutoSize = True
-        Me.lblAnswerB.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerB.Location = New System.Drawing.Point(58, 179)
-        Me.lblAnswerB.Name = "lblAnswerB"
-        Me.lblAnswerB.Size = New System.Drawing.Size(51, 18)
-        Me.lblAnswerB.TabIndex = 4
-        Me.lblAnswerB.Text = "Label1"
         '
         'rbtAnswerC
         '
         Me.rbtAnswerC.AutoSize = True
-        Me.rbtAnswerC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerC.Location = New System.Drawing.Point(23, 251)
+        Me.rbtAnswerC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtAnswerC.Location = New System.Drawing.Point(52, 270)
+        Me.rbtAnswerC.MaximumSize = New System.Drawing.Size(500, 50)
         Me.rbtAnswerC.Name = "rbtAnswerC"
-        Me.rbtAnswerC.Size = New System.Drawing.Size(14, 13)
-        Me.rbtAnswerC.TabIndex = 5
+        Me.rbtAnswerC.Size = New System.Drawing.Size(38, 20)
+        Me.rbtAnswerC.TabIndex = 14
         Me.rbtAnswerC.TabStop = True
+        Me.rbtAnswerC.Text = "txt"
+        Me.rbtAnswerC.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.rbtAnswerC.UseVisualStyleBackColor = True
-        '
-        'lblAnswerC
-        '
-        Me.lblAnswerC.AutoSize = True
-        Me.lblAnswerC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerC.Location = New System.Drawing.Point(58, 251)
-        Me.lblAnswerC.Name = "lblAnswerC"
-        Me.lblAnswerC.Size = New System.Drawing.Size(51, 18)
-        Me.lblAnswerC.TabIndex = 6
-        Me.lblAnswerC.Text = "Label1"
         '
         'rbtAnswerD
         '
         Me.rbtAnswerD.AutoSize = True
-        Me.rbtAnswerD.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerD.Location = New System.Drawing.Point(23, 328)
+        Me.rbtAnswerD.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtAnswerD.Location = New System.Drawing.Point(52, 347)
+        Me.rbtAnswerD.MaximumSize = New System.Drawing.Size(500, 50)
         Me.rbtAnswerD.Name = "rbtAnswerD"
-        Me.rbtAnswerD.Size = New System.Drawing.Size(14, 13)
-        Me.rbtAnswerD.TabIndex = 7
+        Me.rbtAnswerD.Size = New System.Drawing.Size(38, 20)
+        Me.rbtAnswerD.TabIndex = 16
         Me.rbtAnswerD.TabStop = True
+        Me.rbtAnswerD.Text = "txt"
+        Me.rbtAnswerD.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.rbtAnswerD.UseVisualStyleBackColor = True
-        '
-        'lblAnswerD
-        '
-        Me.lblAnswerD.AutoSize = True
-        Me.lblAnswerD.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAnswerD.Location = New System.Drawing.Point(58, 328)
-        Me.lblAnswerD.Name = "lblAnswerD"
-        Me.lblAnswerD.Size = New System.Drawing.Size(51, 18)
-        Me.lblAnswerD.TabIndex = 8
-        Me.lblAnswerD.Text = "Label1"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.lblQuestion)
-        Me.GroupBox1.Controls.Add(Me.lblAnswerD)
-        Me.GroupBox1.Controls.Add(Me.rbtAnswerD)
-        Me.GroupBox1.Controls.Add(Me.lblAnswerC)
-        Me.GroupBox1.Controls.Add(Me.rbtAnswerC)
-        Me.GroupBox1.Controls.Add(Me.lblAnswerB)
-        Me.GroupBox1.Controls.Add(Me.rbtAnswerB)
-        Me.GroupBox1.Controls.Add(Me.lblAnswerA)
-        Me.GroupBox1.Controls.Add(Me.rbtAnswerA)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(211, 133)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(737, 414)
-        Me.GroupBox1.TabIndex = 9
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Visible = False
         '
         'lblQuestion
         '
         Me.lblQuestion.AutoSize = True
-        Me.lblQuestion.Location = New System.Drawing.Point(20, 13)
+        Me.lblQuestion.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblQuestion.Location = New System.Drawing.Point(6, 35)
+        Me.lblQuestion.MaximumSize = New System.Drawing.Size(600, 60)
         Me.lblQuestion.Name = "lblQuestion"
-        Me.lblQuestion.Size = New System.Drawing.Size(64, 18)
-        Me.lblQuestion.TabIndex = 9
+        Me.lblQuestion.Size = New System.Drawing.Size(88, 20)
+        Me.lblQuestion.TabIndex = 18
         Me.lblQuestion.Text = "question"
         '
-        'flpButtonQues
+        'grbQuestion
         '
-        Me.flpButtonQues.Font = New System.Drawing.Font("Palatino Linotype", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.flpButtonQues.Location = New System.Drawing.Point(12, 35)
-        Me.flpButtonQues.Name = "flpButtonQues"
-        Me.flpButtonQues.Size = New System.Drawing.Size(190, 572)
-        Me.flpButtonQues.TabIndex = 14
+        Me.grbQuestion.Controls.Add(Me.lblQuestion)
+        Me.grbQuestion.Controls.Add(Me.rbtAnswerD)
+        Me.grbQuestion.Controls.Add(Me.rbtAnswerC)
+        Me.grbQuestion.Controls.Add(Me.rbtAnswerB)
+        Me.grbQuestion.Controls.Add(Me.rbtAnswerA)
+        Me.grbQuestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grbQuestion.Location = New System.Drawing.Point(246, 90)
+        Me.grbQuestion.Name = "grbQuestion"
+        Me.grbQuestion.Size = New System.Drawing.Size(614, 424)
+        Me.grbQuestion.TabIndex = 15
+        Me.grbQuestion.TabStop = False
+        Me.grbQuestion.Text = "Câu 1"
+        '
+        'Button5
+        '
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Location = New System.Drawing.Point(12, 564)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(190, 43)
+        Me.Button5.TabIndex = 0
+        Me.Button5.Text = "Nộp bài & kết thúc"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Test
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1219, 619)
+        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.grbQuestion)
         Me.Controls.Add(Me.flpButtonQues)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "Test"
         Me.Text = "Kiểm Tra"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.grbQuestion.ResumeLayout(False)
+        Me.grbQuestion.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -241,16 +218,13 @@ Partial Class Test
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents rbtAnswerA As System.Windows.Forms.RadioButton
-    Friend WithEvents lblAnswerA As System.Windows.Forms.Label
-    Friend WithEvents rbtAnswerB As System.Windows.Forms.RadioButton
-    Friend WithEvents lblAnswerB As System.Windows.Forms.Label
-    Friend WithEvents rbtAnswerC As System.Windows.Forms.RadioButton
-    Friend WithEvents lblAnswerC As System.Windows.Forms.Label
-    Friend WithEvents rbtAnswerD As System.Windows.Forms.RadioButton
-    Friend WithEvents lblAnswerD As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents lblQuestion As System.Windows.Forms.Label
     Friend WithEvents flpButtonQues As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents rbtAnswerA As System.Windows.Forms.RadioButton
+    Friend WithEvents rbtAnswerB As System.Windows.Forms.RadioButton
+    Friend WithEvents rbtAnswerC As System.Windows.Forms.RadioButton
+    Friend WithEvents rbtAnswerD As System.Windows.Forms.RadioButton
+    Friend WithEvents lblQuestion As System.Windows.Forms.Label
+    Friend WithEvents grbQuestion As System.Windows.Forms.GroupBox
+    Friend WithEvents Button5 As System.Windows.Forms.Button
 
 End Class
