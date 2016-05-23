@@ -30,13 +30,13 @@ Partial Class Test
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.flpButtonQues = New System.Windows.Forms.FlowLayoutPanel()
-        Me.rbtAnswerA = New System.Windows.Forms.RadioButton()
         Me.rbtAnswerB = New System.Windows.Forms.RadioButton()
         Me.rbtAnswerC = New System.Windows.Forms.RadioButton()
         Me.rbtAnswerD = New System.Windows.Forms.RadioButton()
         Me.lblQuestion = New System.Windows.Forms.Label()
         Me.grbQuestion = New System.Windows.Forms.GroupBox()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.rbtAnswerA = New System.Windows.Forms.RadioButton()
         Me.grbQuestion.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -99,19 +99,6 @@ Partial Class Test
         Me.flpButtonQues.Size = New System.Drawing.Size(190, 537)
         Me.flpButtonQues.TabIndex = 14
         '
-        'rbtAnswerA
-        '
-        Me.rbtAnswerA.AutoSize = True
-        Me.rbtAnswerA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbtAnswerA.Location = New System.Drawing.Point(52, 111)
-        Me.rbtAnswerA.MinimumSize = New System.Drawing.Size(500, 50)
-        Me.rbtAnswerA.Name = "rbtAnswerA"
-        Me.rbtAnswerA.Size = New System.Drawing.Size(500, 50)
-        Me.rbtAnswerA.TabIndex = 10
-        Me.rbtAnswerA.TabStop = True
-        Me.rbtAnswerA.Text = "txt"
-        Me.rbtAnswerA.UseVisualStyleBackColor = True
-        '
         'rbtAnswerB
         '
         Me.rbtAnswerB.AutoSize = True
@@ -170,8 +157,8 @@ Partial Class Test
         Me.grbQuestion.Controls.Add(Me.lblQuestion)
         Me.grbQuestion.Controls.Add(Me.rbtAnswerD)
         Me.grbQuestion.Controls.Add(Me.rbtAnswerC)
-        Me.grbQuestion.Controls.Add(Me.rbtAnswerB)
         Me.grbQuestion.Controls.Add(Me.rbtAnswerA)
+        Me.grbQuestion.Controls.Add(Me.rbtAnswerB)
         Me.grbQuestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grbQuestion.Location = New System.Drawing.Point(246, 90)
         Me.grbQuestion.Name = "grbQuestion"
@@ -189,6 +176,20 @@ Partial Class Test
         Me.Button5.TabIndex = 0
         Me.Button5.Text = "Nộp bài & kết thúc"
         Me.Button5.UseVisualStyleBackColor = True
+        '
+        'rbtAnswerA
+        '
+        Me.rbtAnswerA.AutoSize = True
+        Me.rbtAnswerA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtAnswerA.Location = New System.Drawing.Point(52, 127)
+        Me.rbtAnswerA.MaximumSize = New System.Drawing.Size(500, 50)
+        Me.rbtAnswerA.Name = "rbtAnswerA"
+        Me.rbtAnswerA.Size = New System.Drawing.Size(38, 20)
+        Me.rbtAnswerA.TabIndex = 12
+        Me.rbtAnswerA.TabStop = True
+        Me.rbtAnswerA.Text = "txt"
+        Me.rbtAnswerA.TextAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.rbtAnswerA.UseVisualStyleBackColor = True
         '
         'Test
         '
@@ -219,12 +220,12 @@ Partial Class Test
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents flpButtonQues As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents rbtAnswerA As System.Windows.Forms.RadioButton
     Friend WithEvents rbtAnswerB As System.Windows.Forms.RadioButton
     Friend WithEvents rbtAnswerC As System.Windows.Forms.RadioButton
     Friend WithEvents rbtAnswerD As System.Windows.Forms.RadioButton
     Friend WithEvents lblQuestion As System.Windows.Forms.Label
     Friend WithEvents grbQuestion As System.Windows.Forms.GroupBox
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents rbtAnswerA As System.Windows.Forms.RadioButton
 
 End Class

@@ -3,7 +3,7 @@
 Public Class Test
     Private connect As New SqlConnection("Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True; MultipleActiveResultSets=True")
     Private numOfQuestion As Integer = 45
-    Private IDSubject As String = "ktmt"
+    Private IDSubject As String = "kthdc"
     Private time As Integer
 
     'list chua id cau hoi da duoc chon random
@@ -155,11 +155,11 @@ Public Class Test
         End Select
     End Sub
 
-    Private Sub rbtAnswerA_CheckedChanged(sender As Object, e As EventArgs) Handles rbtAnswerA.CheckedChanged
+    Private Sub rbtAnswerA_CheckedChanged(sender As Object, e As EventArgs)
         questionSelecteds.Item(currentQuestion).setIndexChecked(0)
     End Sub
 
-    Private Sub rbtAnswerB_CheckedChanged(sender As Object, e As EventArgs) Handles rbtAnswerB.CheckedChanged
+    Private Sub rbtAnswerB_CheckedChanged(sender As Object, e As EventArgs) Handles rbtAnswerB.CheckedChanged, rbtAnswerA.CheckedChanged
         questionSelecteds.Item(currentQuestion).setIndexChecked(1)
     End Sub
 

@@ -40,16 +40,17 @@ Partial Class DataUpdate
         Me.NameSubject = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnExecute = New System.Windows.Forms.Button()
-        Me.edtIDSubject = New System.Windows.Forms.TextBox()
+        Me.txtIDSubject = New System.Windows.Forms.TextBox()
         Me.btnOpen = New System.Windows.Forms.Button()
         Me.openFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.edtLinkFile = New System.Windows.Forms.TextBox()
-        Me.edtNameSubject = New System.Windows.Forms.TextBox()
+        Me.txtLinkFile = New System.Windows.Forms.TextBox()
+        Me.txtNameSubject = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnView = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
         CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvAnswer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -183,25 +184,25 @@ Partial Class DataUpdate
         'btnExecute
         '
         Me.btnExecute.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExecute.Location = New System.Drawing.Point(705, 41)
+        Me.btnExecute.Location = New System.Drawing.Point(670, 41)
         Me.btnExecute.Name = "btnExecute"
         Me.btnExecute.Size = New System.Drawing.Size(98, 26)
         Me.btnExecute.TabIndex = 6
         Me.btnExecute.Text = "GO!"
         Me.btnExecute.UseVisualStyleBackColor = True
         '
-        'edtIDSubject
+        'txtIDSubject
         '
-        Me.edtIDSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtIDSubject.Location = New System.Drawing.Point(170, 41)
-        Me.edtIDSubject.Name = "edtIDSubject"
-        Me.edtIDSubject.Size = New System.Drawing.Size(92, 26)
-        Me.edtIDSubject.TabIndex = 7
+        Me.txtIDSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIDSubject.Location = New System.Drawing.Point(170, 41)
+        Me.txtIDSubject.Name = "txtIDSubject"
+        Me.txtIDSubject.Size = New System.Drawing.Size(92, 26)
+        Me.txtIDSubject.TabIndex = 7
         '
         'btnOpen
         '
         Me.btnOpen.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOpen.Location = New System.Drawing.Point(705, 9)
+        Me.btnOpen.Location = New System.Drawing.Point(670, 9)
         Me.btnOpen.Name = "btnOpen"
         Me.btnOpen.Size = New System.Drawing.Size(98, 26)
         Me.btnOpen.TabIndex = 8
@@ -212,22 +213,22 @@ Partial Class DataUpdate
         '
         Me.openFileDialog.FileName = "OpenFileDialog"
         '
-        'edtLinkFile
+        'txtLinkFile
         '
-        Me.edtLinkFile.Enabled = False
-        Me.edtLinkFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtLinkFile.Location = New System.Drawing.Point(170, 9)
-        Me.edtLinkFile.Name = "edtLinkFile"
-        Me.edtLinkFile.Size = New System.Drawing.Size(459, 26)
-        Me.edtLinkFile.TabIndex = 7
+        Me.txtLinkFile.Enabled = False
+        Me.txtLinkFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLinkFile.Location = New System.Drawing.Point(170, 9)
+        Me.txtLinkFile.Name = "txtLinkFile"
+        Me.txtLinkFile.Size = New System.Drawing.Size(459, 26)
+        Me.txtLinkFile.TabIndex = 7
         '
-        'edtNameSubject
+        'txtNameSubject
         '
-        Me.edtNameSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtNameSubject.Location = New System.Drawing.Point(388, 41)
-        Me.edtNameSubject.Name = "edtNameSubject"
-        Me.edtNameSubject.Size = New System.Drawing.Size(241, 26)
-        Me.edtNameSubject.TabIndex = 7
+        Me.txtNameSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNameSubject.Location = New System.Drawing.Point(388, 41)
+        Me.txtNameSubject.Name = "txtNameSubject"
+        Me.txtNameSubject.Size = New System.Drawing.Size(241, 26)
+        Me.txtNameSubject.TabIndex = 7
         '
         'btnSave
         '
@@ -273,18 +274,29 @@ Partial Class DataUpdate
         Me.btnView.Text = "View Data"
         Me.btnView.UseVisualStyleBackColor = True
         '
+        'btnReset
+        '
+        Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Location = New System.Drawing.Point(789, 12)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(74, 52)
+        Me.btnReset.TabIndex = 13
+        Me.btnReset.Text = "Reset All"
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
         'DataUpdate
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(1235, 642)
+        Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnOpen)
-        Me.Controls.Add(Me.edtLinkFile)
-        Me.Controls.Add(Me.edtNameSubject)
-        Me.Controls.Add(Me.edtIDSubject)
+        Me.Controls.Add(Me.txtLinkFile)
+        Me.Controls.Add(Me.txtNameSubject)
+        Me.Controls.Add(Me.txtIDSubject)
         Me.Controls.Add(Me.btnExecute)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvSubject)
@@ -315,11 +327,11 @@ Partial Class DataUpdate
     Friend WithEvents dgvSubject As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnExecute As System.Windows.Forms.Button
-    Friend WithEvents edtIDSubject As System.Windows.Forms.TextBox
+    Friend WithEvents txtIDSubject As System.Windows.Forms.TextBox
     Friend WithEvents btnOpen As System.Windows.Forms.Button
     Friend WithEvents openFileDialog As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents edtLinkFile As System.Windows.Forms.TextBox
-    Friend WithEvents edtNameSubject As System.Windows.Forms.TextBox
+    Friend WithEvents txtLinkFile As System.Windows.Forms.TextBox
+    Friend WithEvents txtNameSubject As System.Windows.Forms.TextBox
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents IDQuestionAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IDAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -334,5 +346,6 @@ Partial Class DataUpdate
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnView As System.Windows.Forms.Button
+    Friend WithEvents btnReset As System.Windows.Forms.Button
 
 End Class

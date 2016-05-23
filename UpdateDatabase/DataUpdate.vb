@@ -14,16 +14,18 @@ Public Class DataUpdate
     End Sub
     Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecute.Click
         'choose file
-        If (edtLinkFile.Text = "") Then
+        If (txtLinkFile.Text = "") Then
             openFileDialog.ShowDialog()
         End If
 
-        If (edtIDSubject.Text.Length > 0) Then
-            If (Me.isIDSubjectExist(edtIDSubject.Text)) Then
-                dgvSubject.Rows.Add(edtIDSubject.Text, edtNameSubject.Text)
-            ElseIf (String.IsNullOrEmpty(edtNameSubject.Text)) Then
+        If (txtIDSubject.Text.Length > 0) Then
+            If (Me.isIDSubjectExist(txtIDSubject.Text)) Then
+                dgvSubject.Rows.Add(txtIDSubject.Text, txtNameSubject.Text)
+            ElseIf (Not String.IsNullOrEmpty(txtNameSubject.Text)) Then
+                dgvSubject.Rows.Add(txtIDSubject.Text, txtNameSubject.Text)
+            Else
                 MsgBox("Xin hãy nhập tên môn học!")
-                edtNameSubject.Focus()
+                txtNameSubject.Focus()
             End If
 
             Dim excel As Excel.Application
@@ -33,7 +35,7 @@ Public Class DataUpdate
             'open excel application
             excel = New Excel.Application
             'open file excel
-            workBook = excel.Workbooks.Open(edtLinkFile.Text)
+            workBook = excel.Workbooks.Open(txtLinkFile.Text)
             'open sheet
             workSheet = workBook.Worksheets(1)
             range = workSheet.Columns(1)
@@ -47,7 +49,7 @@ Public Class DataUpdate
             Dim i, max_cell As Integer
             Dim str As String
             Dim change As Boolean = False
-            Dim id_qs As Integer = getLastIDQuestion(edtIDSubject.Text) + 1
+            Dim id_qs As Integer = getLastIDQuestion(txtIDSubject.Text) + 1
             Dim id_as As Integer = 1
             Dim correct As Integer
 
@@ -56,9 +58,10 @@ Public Class DataUpdate
                 str = arr_cell.GetValue(i, 1).ToString.Trim
 
                 'check row is question
-                If (str.Contains(":") Or str.Contains("?")) Then
+                'change de kiem tra da doc het 4 cau tra loi chua
+                If (str.Substring(str.Length - 1).Equals(":") Or str.Substring(str.Length - 1).Equals("?") And change = True) Then
                     change = False
-                    dgvQuestion.Rows.Add(edtIDSubject.Text, id_qs, str)
+                    dgvQuestion.Rows.Add(txtIDSubject.Text, id_qs, str)
                 Else
                     If (str.Substring(str.Length - 1).Equals("*")) Then
                         correct = 1
@@ -74,6 +77,7 @@ Public Class DataUpdate
                     Else
                         id_as = 1
                         id_qs = id_qs + 1
+                        change = True
                     End If
                 End If
 
@@ -82,7 +86,7 @@ Public Class DataUpdate
 
         Else
             MsgBox("Vui long nhap gia tri cho Subject")
-            edtIDSubject.Focus()
+            txtIDSubject.Focus()
         End If
     End Sub
 
@@ -93,7 +97,7 @@ Public Class DataUpdate
     End Sub
 
     Private Sub openFileDialog_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles openFileDialog.FileOk
-        edtLinkFile.Text = sender.FileName()
+        txtLinkFile.Text = sender.FileName()
 
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -104,14 +108,14 @@ Public Class DataUpdate
         Dim content As String
 
         'add to subject table
-        If (Not isIDSubjectExist(edtIDSubject.Text)) Then
+        If (Not isIDSubjectExist(txtIDSubject.Text.Trim)) Then
             Dim subjectRow As DataGridViewRow = dgvSubject.Rows(0)
             Dim subjectCommand As New SqlCommand("insert into subject values(@idsubject,@namesubject)", con)
             subjectCommand.Parameters.AddWithValue("@idsubject", subjectRow.Cells("IDSubject").Value)
             subjectCommand.Parameters.AddWithValue("@namesubject", subjectRow.Cells("NameSubject").Value)
             subjectCommand.ExecuteNonQuery()
-            dgvSubject.Rows.Clear()
         End If
+        dgvSubject.Rows.Clear()
 
         'add to question table
         Dim questionrows As Integer = dgvQuestion.Rows.Count - 2
@@ -132,9 +136,10 @@ Public Class DataUpdate
         Dim answerRows As Integer = dgvAnswer.Rows.Count - 2
         For index = 0 To answerRows
             Dim row As DataGridViewRow = dgvAnswer.Rows(index)
-            Using cmd As New SqlCommand("INSERT INTO Answer VALUES(@IdSubject, @IDQuestion, @Content,@Correct)", con)
-                cmd.Parameters.AddWithValue("@IdSubject", row.Cells("IDQuestionAnswer").Value)
-                cmd.Parameters.AddWithValue("@IDQuestion", row.Cells("IDAnswer").Value)
+            Using cmd As New SqlCommand("INSERT INTO Answer VALUES(@IdSubject, @IDQuestion,@IDAnswer, @Content,@Correct)", con)
+                cmd.Parameters.AddWithValue("@IdSubject", txtIDSubject.Text.Trim)
+                cmd.Parameters.AddWithValue("@IDQuestion", row.Cells("IDQuestionAnswer").Value)
+                cmd.Parameters.AddWithValue("@IDAnswer", row.Cells("IDAnswer").Value)
                 content = row.Cells("ContentAnswer").Value
                 content = content.Substring(InStr(content, " ")).Trim
                 cmd.Parameters.AddWithValue("@Content", content)
@@ -143,6 +148,10 @@ Public Class DataUpdate
             End Using
         Next
         dgvAnswer.Rows.Clear()
+
+        txtIDSubject.Text = ""
+        txtLinkFile.Text = ""
+        txtNameSubject.Text = ""
 
         con.Close()
         MessageBox.Show("Records inserted.")
@@ -155,7 +164,7 @@ Public Class DataUpdate
         Dim con As New SqlConnection(constring)
         con.Open()
         Dim cmd As New SqlCommand("select max(idquestion) from question where idsubject = @idsubject", con)
-        cmd.Parameters.AddWithValue("@idsubject",idSubject)
+        cmd.Parameters.AddWithValue("@idsubject", idSubject)
         Dim result As String
         result = cmd.ExecuteScalar().ToString
         If (Not String.IsNullOrEmpty(result)) Then
@@ -175,7 +184,7 @@ Public Class DataUpdate
             Dim result As String = cmd.ExecuteScalar().ToString
 
             If (Not String.IsNullOrEmpty(result)) Then
-                edtNameSubject.Text = result
+                txtNameSubject.Text = result
                 Return True
             End If
             con.Close()
@@ -189,5 +198,14 @@ Public Class DataUpdate
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
         'ViewData.MdiParent = Me
         ViewData.Show()
+    End Sub
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        txtIDSubject.Text = ""
+        txtLinkFile.Text = ""
+        txtNameSubject.Text = ""
+        dgvAnswer.Rows.Clear()
+        dgvQuestion.Rows.Clear()
+        dgvSubject.Rows.Clear()
     End Sub
 End Class
