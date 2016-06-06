@@ -22,215 +22,259 @@ Partial Class ViewData
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.DB_DataSet = New DemoProject.DB_DataSet()
-        Me.AnswerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AnswerTableAdapter = New DemoProject.DB_DataSetTableAdapters.AnswerTableAdapter()
-        Me.TableAdapterManager = New DemoProject.DB_DataSetTableAdapters.TableAdapterManager()
-        Me.QuestionTableAdapter = New DemoProject.DB_DataSetTableAdapters.QuestionTableAdapter()
-        Me.SubjectTableAdapter = New DemoProject.DB_DataSetTableAdapters.SubjectTableAdapter()
-        Me.dgvAnswerView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QuestionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.dgvQuestionView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dgvSubjectView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DB_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvAnswerView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvQuestionView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SubjectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.idSubject = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nameSubject = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvQuestionView = New System.Windows.Forms.DataGridView()
+        Me.idSubjectQuestion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idQuestion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.contentQuestion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvAnswerView = New System.Windows.Forms.DataGridView()
+        Me.idSubjectAnswer = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idQuestionAnswer = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idAnswer = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.contentAnswer = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.correct = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.cmbSubjectFilter = New System.Windows.Forms.ComboBox()
+        Me.cmbQuestionFilter = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtSubjectFilter = New System.Windows.Forms.TextBox()
+        Me.txtQuestionFilter = New System.Windows.Forms.TextBox()
+        Me.btnFilter = New System.Windows.Forms.Button()
         CType(Me.dgvSubjectView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvQuestionView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvAnswerView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'DB_DataSet
-        '
-        Me.DB_DataSet.DataSetName = "DB_DataSet"
-        Me.DB_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'AnswerBindingSource
-        '
-        Me.AnswerBindingSource.DataMember = "Answer"
-        Me.AnswerBindingSource.DataSource = Me.DB_DataSet
-        '
-        'AnswerTableAdapter
-        '
-        Me.AnswerTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AllUserTableAdapter = Nothing
-        Me.TableAdapterManager.AnswerTableAdapter = Me.AnswerTableAdapter
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.QuestionTableAdapter = Me.QuestionTableAdapter
-        Me.TableAdapterManager.SubjectTableAdapter = Me.SubjectTableAdapter
-        Me.TableAdapterManager.UpdateOrder = DemoProject.DB_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'QuestionTableAdapter
-        '
-        Me.QuestionTableAdapter.ClearBeforeFill = True
-        '
-        'SubjectTableAdapter
-        '
-        Me.SubjectTableAdapter.ClearBeforeFill = True
-        '
-        'dgvAnswerView
-        '
-        Me.dgvAnswerView.AutoGenerateColumns = False
-        Me.dgvAnswerView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAnswerView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
-        Me.dgvAnswerView.DataSource = Me.AnswerBindingSource
-        Me.dgvAnswerView.Location = New System.Drawing.Point(695, 59)
-        Me.dgvAnswerView.Name = "dgvAnswerView"
-        Me.dgvAnswerView.Size = New System.Drawing.Size(570, 480)
-        Me.dgvAnswerView.TabIndex = 1
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "IDSubject"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "IDSubject"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "IDQuestion"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "IDQuestion"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "IDAnswer"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "IDAnswer"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "ContentAnswer"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "ContentAnswer"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Correct"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Correct"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'QuestionBindingSource
-        '
-        Me.QuestionBindingSource.DataMember = "Question"
-        Me.QuestionBindingSource.DataSource = Me.DB_DataSet
-        '
-        'dgvQuestionView
-        '
-        Me.dgvQuestionView.AutoGenerateColumns = False
-        Me.dgvQuestionView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvQuestionView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8})
-        Me.dgvQuestionView.DataSource = Me.QuestionBindingSource
-        Me.dgvQuestionView.Location = New System.Drawing.Point(288, 59)
-        Me.dgvQuestionView.Name = "dgvQuestionView"
-        Me.dgvQuestionView.Size = New System.Drawing.Size(355, 480)
-        Me.dgvQuestionView.TabIndex = 2
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "IDSubject"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "IDSubject"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "IDQuestion"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "IDQuestion"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "ContentQuestion"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "ContentQuestion"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'SubjectBindingSource
-        '
-        Me.SubjectBindingSource.DataMember = "Subject"
-        Me.SubjectBindingSource.DataSource = Me.DB_DataSet
         '
         'dgvSubjectView
         '
-        Me.dgvSubjectView.AutoGenerateColumns = False
+        Me.dgvSubjectView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvSubjectView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSubjectView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
-        Me.dgvSubjectView.DataSource = Me.SubjectBindingSource
-        Me.dgvSubjectView.Location = New System.Drawing.Point(12, 59)
+        Me.dgvSubjectView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idSubject, Me.nameSubject})
+        Me.dgvSubjectView.Location = New System.Drawing.Point(12, 198)
         Me.dgvSubjectView.Name = "dgvSubjectView"
-        Me.dgvSubjectView.Size = New System.Drawing.Size(228, 480)
-        Me.dgvSubjectView.TabIndex = 3
+        Me.dgvSubjectView.Size = New System.Drawing.Size(251, 370)
+        Me.dgvSubjectView.TabIndex = 0
         '
-        'DataGridViewTextBoxColumn9
+        'idSubject
         '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "IDSubject"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "IDSubject"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.idSubject.DataPropertyName = "IDSubject"
+        Me.idSubject.HeaderText = "ID Môn học"
+        Me.idSubject.Name = "idSubject"
+        Me.idSubject.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn10
+        'nameSubject
         '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "NameSubject"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "NameSubject"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.nameSubject.DataPropertyName = "NameSubject"
+        Me.nameSubject.HeaderText = "Tên Môn Học"
+        Me.nameSubject.Name = "nameSubject"
+        '
+        'dgvQuestionView
+        '
+        Me.dgvQuestionView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvQuestionView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvQuestionView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idSubjectQuestion, Me.idQuestion, Me.contentQuestion})
+        Me.dgvQuestionView.Location = New System.Drawing.Point(311, 198)
+        Me.dgvQuestionView.Name = "dgvQuestionView"
+        Me.dgvQuestionView.Size = New System.Drawing.Size(396, 370)
+        Me.dgvQuestionView.TabIndex = 0
+        '
+        'idSubjectQuestion
+        '
+        Me.idSubjectQuestion.DataPropertyName = "IDSubject"
+        Me.idSubjectQuestion.HeaderText = "ID Môn học"
+        Me.idSubjectQuestion.Name = "idSubjectQuestion"
+        Me.idSubjectQuestion.ReadOnly = True
+        '
+        'idQuestion
+        '
+        Me.idQuestion.DataPropertyName = "IDQuestion"
+        Me.idQuestion.HeaderText = "ID Câu hỏi"
+        Me.idQuestion.Name = "idQuestion"
+        Me.idQuestion.ReadOnly = True
+        '
+        'contentQuestion
+        '
+        Me.contentQuestion.DataPropertyName = "ContentQuestion"
+        Me.contentQuestion.HeaderText = "Nội dung câu hỏi"
+        Me.contentQuestion.Name = "contentQuestion"
+        '
+        'dgvAnswerView
+        '
+        Me.dgvAnswerView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvAnswerView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAnswerView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idSubjectAnswer, Me.idQuestionAnswer, Me.idAnswer, Me.contentAnswer, Me.correct})
+        Me.dgvAnswerView.Location = New System.Drawing.Point(729, 198)
+        Me.dgvAnswerView.Name = "dgvAnswerView"
+        Me.dgvAnswerView.Size = New System.Drawing.Size(551, 370)
+        Me.dgvAnswerView.TabIndex = 0
+        '
+        'idSubjectAnswer
+        '
+        Me.idSubjectAnswer.DataPropertyName = "IDSubject"
+        Me.idSubjectAnswer.HeaderText = "ID Môn"
+        Me.idSubjectAnswer.Name = "idSubjectAnswer"
+        Me.idSubjectAnswer.ReadOnly = True
+        '
+        'idQuestionAnswer
+        '
+        Me.idQuestionAnswer.DataPropertyName = "IDQuestion"
+        Me.idQuestionAnswer.HeaderText = "ID Câu Hỏi"
+        Me.idQuestionAnswer.Name = "idQuestionAnswer"
+        Me.idQuestionAnswer.ReadOnly = True
+        '
+        'idAnswer
+        '
+        Me.idAnswer.DataPropertyName = "IDAnswer"
+        Me.idAnswer.HeaderText = "ID Câu TL"
+        Me.idAnswer.Name = "idAnswer"
+        Me.idAnswer.ReadOnly = True
+        '
+        'contentAnswer
+        '
+        Me.contentAnswer.DataPropertyName = "ContentAnswer"
+        Me.contentAnswer.HeaderText = "ND câu trả lời"
+        Me.contentAnswer.Name = "contentAnswer"
+        '
+        'correct
+        '
+        Me.correct.DataPropertyName = "Correct"
+        Me.correct.HeaderText = "True/False"
+        Me.correct.Name = "correct"
+        '
+        'btnReset
+        '
+        Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Location = New System.Drawing.Point(729, 88)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(75, 25)
+        Me.btnReset.TabIndex = 1
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
+        'cmbSubjectFilter
+        '
+        Me.cmbSubjectFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSubjectFilter.FormattingEnabled = True
+        Me.cmbSubjectFilter.Location = New System.Drawing.Point(135, 48)
+        Me.cmbSubjectFilter.Name = "cmbSubjectFilter"
+        Me.cmbSubjectFilter.Size = New System.Drawing.Size(102, 24)
+        Me.cmbSubjectFilter.TabIndex = 2
+        '
+        'cmbQuestionFilter
+        '
+        Me.cmbQuestionFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbQuestionFilter.FormattingEnabled = True
+        Me.cmbQuestionFilter.Location = New System.Drawing.Point(135, 89)
+        Me.cmbQuestionFilter.Name = "cmbQuestionFilter"
+        Me.cmbQuestionFilter.Size = New System.Drawing.Size(102, 24)
+        Me.cmbQuestionFilter.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(55, 54)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(59, 16)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Môn học"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(55, 97)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 16)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Câu hỏi"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(35, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(160, 20)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Nhập vào để tìm kiếm"
+        '
+        'txtSubjectFilter
+        '
+        Me.txtSubjectFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSubjectFilter.Location = New System.Drawing.Point(259, 49)
+        Me.txtSubjectFilter.Name = "txtSubjectFilter"
+        Me.txtSubjectFilter.Size = New System.Drawing.Size(424, 22)
+        Me.txtSubjectFilter.TabIndex = 7
+        '
+        'txtQuestionFilter
+        '
+        Me.txtQuestionFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtQuestionFilter.Location = New System.Drawing.Point(259, 91)
+        Me.txtQuestionFilter.Name = "txtQuestionFilter"
+        Me.txtQuestionFilter.Size = New System.Drawing.Size(424, 22)
+        Me.txtQuestionFilter.TabIndex = 7
+        '
+        'btnFilter
+        '
+        Me.btnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilter.Location = New System.Drawing.Point(729, 48)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(75, 25)
+        Me.btnFilter.TabIndex = 1
+        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.UseVisualStyleBackColor = True
         '
         'ViewData
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1304, 551)
-        Me.Controls.Add(Me.dgvSubjectView)
-        Me.Controls.Add(Me.dgvQuestionView)
+        Me.ClientSize = New System.Drawing.Size(1292, 637)
+        Me.Controls.Add(Me.txtQuestionFilter)
+        Me.Controls.Add(Me.txtSubjectFilter)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cmbQuestionFilter)
+        Me.Controls.Add(Me.cmbSubjectFilter)
+        Me.Controls.Add(Me.btnFilter)
+        Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.dgvAnswerView)
+        Me.Controls.Add(Me.dgvQuestionView)
+        Me.Controls.Add(Me.dgvSubjectView)
         Me.Name = "ViewData"
         Me.Text = "ViewData"
-        CType(Me.DB_DataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvAnswerView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvQuestionView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SubjectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvSubjectView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvQuestionView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvAnswerView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents DB_DataSet As DemoProject.DB_DataSet
-    Friend WithEvents AnswerBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents AnswerTableAdapter As DemoProject.DB_DataSetTableAdapters.AnswerTableAdapter
-    Friend WithEvents TableAdapterManager As DemoProject.DB_DataSetTableAdapters.TableAdapterManager
-    Friend WithEvents dgvAnswerView As System.Windows.Forms.DataGridView
-    Friend WithEvents QuestionTableAdapter As DemoProject.DB_DataSetTableAdapters.QuestionTableAdapter
-    Friend WithEvents QuestionBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents SubjectTableAdapter As DemoProject.DB_DataSetTableAdapters.SubjectTableAdapter
-    Friend WithEvents dgvQuestionView As System.Windows.Forms.DataGridView
-    Friend WithEvents SubjectBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents dgvSubjectView As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dgvQuestionView As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvAnswerView As System.Windows.Forms.DataGridView
+    Friend WithEvents idSubject As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nameSubject As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idSubjectQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents contentQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idSubjectAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idQuestionAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents contentAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents correct As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnReset As System.Windows.Forms.Button
+    Friend WithEvents cmbSubjectFilter As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbQuestionFilter As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents txtSubjectFilter As System.Windows.Forms.TextBox
+    Friend WithEvents txtQuestionFilter As System.Windows.Forms.TextBox
+    Friend WithEvents btnFilter As System.Windows.Forms.Button
 End Class

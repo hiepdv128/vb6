@@ -26,8 +26,9 @@ Partial Class Login
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtPass = New System.Windows.Forms.TextBox()
-        Me.cmdLogin = New System.Windows.Forms.Button()
+        Me.btnLogin = New System.Windows.Forms.Button()
         Me.lblAbout = New System.Windows.Forms.Label()
+        Me.btnSignUp = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtUser
@@ -67,15 +68,15 @@ Partial Class Login
         Me.txtPass.TabIndex = 2
         Me.txtPass.UseSystemPasswordChar = True
         '
-        'cmdLogin
+        'btnLogin
         '
-        Me.cmdLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdLogin.Location = New System.Drawing.Point(327, 263)
-        Me.cmdLogin.Name = "cmdLogin"
-        Me.cmdLogin.Size = New System.Drawing.Size(138, 36)
-        Me.cmdLogin.TabIndex = 4
-        Me.cmdLogin.Text = "Login"
-        Me.cmdLogin.UseVisualStyleBackColor = True
+        Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogin.Location = New System.Drawing.Point(391, 261)
+        Me.btnLogin.Name = "btnLogin"
+        Me.btnLogin.Size = New System.Drawing.Size(138, 36)
+        Me.btnLogin.TabIndex = 4
+        Me.btnLogin.Text = "Login"
+        Me.btnLogin.UseVisualStyleBackColor = True
         '
         'lblAbout
         '
@@ -87,13 +88,24 @@ Partial Class Login
         Me.lblAbout.TabIndex = 5
         Me.lblAbout.Text = "@About us"
         '
+        'btnSignUp
+        '
+        Me.btnSignUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSignUp.Location = New System.Drawing.Point(229, 261)
+        Me.btnSignUp.Name = "btnSignUp"
+        Me.btnSignUp.Size = New System.Drawing.Size(138, 36)
+        Me.btnSignUp.TabIndex = 4
+        Me.btnSignUp.Text = "Sign Up"
+        Me.btnSignUp.UseVisualStyleBackColor = True
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(852, 469)
         Me.Controls.Add(Me.lblAbout)
-        Me.Controls.Add(Me.cmdLogin)
+        Me.Controls.Add(Me.btnSignUp)
+        Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtPass)
         Me.Controls.Add(Me.Label1)
@@ -111,7 +123,8 @@ Partial Class Login
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtPass As System.Windows.Forms.TextBox
-    Friend WithEvents cmdLogin As System.Windows.Forms.Button
+    Friend WithEvents btnLogin As System.Windows.Forms.Button
     Friend WithEvents lblAbout As System.Windows.Forms.Label
+    Friend WithEvents btnSignUp As System.Windows.Forms.Button
 
 End Class

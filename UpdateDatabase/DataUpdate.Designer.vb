@@ -51,6 +51,7 @@ Partial Class DataUpdate
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnView = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvAnswer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -251,9 +252,9 @@ Partial Class DataUpdate
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(59, 44)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(84, 20)
+        Me.Label2.Size = New System.Drawing.Size(94, 20)
         Me.Label2.TabIndex = 10
-        Me.Label2.Text = "ID Subject"
+        Me.Label2.Text = "ID ‫Môn Học"
         '
         'Label3
         '
@@ -261,9 +262,9 @@ Partial Class DataUpdate
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(273, 44)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(109, 20)
+        Me.Label3.Size = New System.Drawing.Size(104, 20)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Name Subject"
+        Me.Label3.Text = "Tên Môn Học"
         '
         'btnView
         '
@@ -284,10 +285,20 @@ Partial Class DataUpdate
         Me.btnReset.Text = "Reset All"
         Me.btnReset.UseVisualStyleBackColor = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(170, 75)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(256, 13)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "*Lưu ý: mỗi file đưa vào sẽ chứa nội dung 1 môn học"
+        '
         'DataUpdate
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(1235, 642)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.Label3)
@@ -347,5 +358,6 @@ Partial Class DataUpdate
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnView As System.Windows.Forms.Button
     Friend WithEvents btnReset As System.Windows.Forms.Button
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 
 End Class

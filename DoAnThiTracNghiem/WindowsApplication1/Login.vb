@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Public Class Login
-    Private Sub cmdLogin_Click(sender As Object, e As EventArgs) Handles cmdLogin.Click
+    Private Sub cmdLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click, btnSignUp.Click
         Me.CenterToScreen()
         Dim connectstring As String = "Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True"
         Dim con As New SqlConnection(connectstring)
