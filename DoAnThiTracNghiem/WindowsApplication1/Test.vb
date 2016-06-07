@@ -1,16 +1,12 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Test
+    Private user As String
     Private connect As New SqlConnection("Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True; MultipleActiveResultSets=True")
-    Private numOfQuestion As Integer = 45
+    Private numOfQuestion As Integer = 50
     Private IDSubject As String = "kthdc"
-    Private time As Integer
-
-    'list chua id cau hoi da duoc chon random
-    Private selectedIDs As New ArrayList
-
-    'list chua id tat ca cau hoi cua mon hoc
-    Private allQuestions As New ArrayList
+    Private second, minute As Integer
+    Private score As Integer
 
     'lis chua danh sach doi tuong kieu Question de thao tac
     Private questionSelecteds As New List(Of Question)
@@ -19,76 +15,81 @@ Public Class Test
     Private currentQuestion As Integer = 0
 
     Public Sub setNumOfQuestion(ByVal num As Integer)
-        numOfQuestion = num
+        Me.numOfQuestion = num
     End Sub
 
     Public Sub setIDSubject(ByVal ID As String)
-        IDSubject = ID
+        Me.IDSubject = ID
     End Sub
 
     Public Sub setTime(ByVal t As Integer)
-        time = t
+        Me.minute = t
+        Me.second = 0
     End Sub
 
     Private Sub test_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.Open()
-        questionSelecteds.Capacity = 60
+        questionSelecteds.Capacity = 50
         CenterToScreen()
-        loadAllIDQuestion()
-        selectedIDs = getIDRandom(allQuestions, numOfQuestion)
-        loadQuesAns()
+        loadQuestion()
         showQuestion()
+        timer.Enabled = True
+        Me.score = 0
     End Sub
     'lay tat ca id cau hoi trung voi mon hoc da chon
-    Private Sub loadAllIDQuestion()
-        Dim sql = "select idquestion from Question where IDSubject = '" + IDSubject + "'"
-        Dim cmd As New SqlCommand(sql, connect)
-        Dim reader As SqlDataReader = cmd.ExecuteReader
-        While reader.Read
-            allQuestions.Add(Integer.Parse(reader.Item(0)))
-        End While
-    End Sub
+    'Private Sub loadAllIDQuestion()
+    '    Dim sql = "select idquestion from Question where IDSubject = '" + IDSubject + "'"
+    '    Dim cmd As New SqlCommand(sql, connect)
+    '    Dim reader As SqlDataReader = cmd.ExecuteReader
+    '    While reader.Read
+    '        allQuestions.Add(Integer.Parse(reader.Item(0)))
+    '    End While
+    'End Sub
     'tra ve 1 arraylist chua id da duoc sap xep random
-    Private Function getIDRandom(ByVal listAllItems As ArrayList, ByVal numOfSelect As Integer) As ArrayList
-        Dim list As New ArrayList
-        Dim count As Integer = listAllItems.Count
-        Dim i, rand As Integer
-        For i = 1 To numOfSelect
-            rand = getNumRandom(0, count - 1)
-            list.Add(listAllItems.Item(rand))
-            listAllItems.RemoveAt(rand)
-            count -= 1
-        Next
-        Return list
-    End Function
+    'Private Function getIDRandom(ByVal listAllItems As ArrayList, ByVal numOfSelect As Integer) As ArrayList
+    '    Dim list As New ArrayList
+    '    Dim count As Integer = listAllItems.Count
+    '    Dim i, rand As Integer
+    '    For i = 1 To numOfSelect
+    '        rand = getNumRandom(0, count - 1)
+    '        list.Add(listAllItems.Item(rand))
+    '        listAllItems.RemoveAt(rand)
+    '        count -= 1
+    '    Next
+    '    Return list
+    'End Function
 
-    Public Function getNumRandom(ByVal Min As Integer, ByVal Max As Integer) As Integer
-        Static Generator As System.Random = New System.Random()
-        Return Generator.Next(Min, Max)
-    End Function
+    'Public Function getNumRandom(ByVal Min As Integer, ByVal Max As Integer) As Integer
+    '    Static Generator As System.Random = New System.Random()
+    '    Return Generator.Next(Min, Max)
+    'End Function
 
-    Public Sub loadQuesAns()
-        For Each idQuestion In selectedIDs
-            Dim sqlQuestion = "select contentquestion from question where idquestion = '" & idQuestion & "'"
-            Dim cmdQuestion As New SqlCommand(sqlQuestion, connect)
+    Public Sub loadQuestion()
+        Dim sqlQuestion = "select top " & numOfQuestion & " * from question where idsubject = '" & IDSubject & "' order by newid()"
+        Dim cmdQuestion As New SqlCommand(sqlQuestion, connect)
+        Dim readQuestion As SqlDataReader = cmdQuestion.ExecuteReader
+
+        While readQuestion.Read
             Dim question As New Question
-            question.setQuestion(cmdQuestion.ExecuteScalar.ToString)
-            Dim sqlAnswer As String = "select contentanswer, correct from answer where idquestion = '" & idQuestion & "'"
+            question.setQuestion(readQuestion.GetString(2))
+
+            Dim sqlAnswer As String = "select contentanswer, correct from answer where idquestion = " & readQuestion.GetInt32(1) & " order by newid()"
             Dim cmdAnswer As New SqlCommand(sqlAnswer, connect)
-            Dim readAns As SqlDataReader = cmdAnswer.ExecuteReader
+            Dim readAnswer As SqlDataReader = cmdAnswer.ExecuteReader
             'read answers of instance question
-            While readAns.Read
+            While readAnswer.Read
                 Dim answer As New Answer
-                answer.setContent(readAns.GetValue(0).ToString)
-                If (readAns.GetValue(1).ToString.Trim.Equals("1")) Then
+                answer.setContent(readAnswer.GetValue(0).ToString)
+                If (readAnswer.GetValue(1).ToString.Trim.Equals("1")) Then
                     answer.setCorrect(True)
                 Else
                     answer.setCorrect(False)
                 End If
                 question.addAnswers(answer)
             End While
+
             questionSelecteds.Add(question)
-        Next
+        End While
     End Sub
 
     Private Sub showQuestion()
@@ -109,14 +110,14 @@ Public Class Test
 
     Private Function addButton(ByVal index As Integer) As Button
         Dim btn As New Button
-        If (numOfQuestion <= 30) Then
-            btn.Width = 70
-            btn.Height = 30
-        Else
-            btn.Width = 50
-            btn.Height = 20
-        End If
-        btn.Text = "Câu " & index
+        'If (numOfQuestion <= 30) Then
+        '    btn.Width = 60
+        '    btn.Height = 40
+        'Else
+        btn.Width = 40
+        btn.Height = 35
+        'End If
+        btn.Text = index
         flpButtonQues.Controls.Add(btn)
         AddHandler btn.Click, AddressOf clickNumOfQuestion
         Return btn
@@ -126,8 +127,7 @@ Public Class Test
         Dim btn As Button = DirectCast(sender, Button)
         'lay ra so thu tu cua nut thong qua ten
         Dim nameBtn As String = btn.Text
-        grbQuestion.Text = nameBtn
-        nameBtn = nameBtn.Replace("Câu ", "")
+        grbQuestion.Text = "Câu hỏi " & nameBtn
         currentQuestion = Integer.Parse(nameBtn) - 1
 
         Dim question As Question = questionSelecteds.Item(currentQuestion)
@@ -155,11 +155,11 @@ Public Class Test
         End Select
     End Sub
 
-    Private Sub rbtAnswerA_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub rbtAnswerA_CheckedChanged(sender As Object, e As EventArgs) Handles rbtAnswerA.CheckedChanged
         questionSelecteds.Item(currentQuestion).setIndexChecked(0)
     End Sub
 
-    Private Sub rbtAnswerB_CheckedChanged(sender As Object, e As EventArgs) Handles rbtAnswerB.CheckedChanged, rbtAnswerA.CheckedChanged
+    Private Sub rbtAnswerB_CheckedChanged(sender As Object, e As EventArgs) Handles rbtAnswerB.CheckedChanged
         questionSelecteds.Item(currentQuestion).setIndexChecked(1)
     End Sub
 
@@ -170,4 +170,37 @@ Public Class Test
     Private Sub rbtAnswerD_CheckedChanged(sender As Object, e As EventArgs) Handles rbtAnswerD.CheckedChanged
         questionSelecteds.Item(currentQuestion).setIndexChecked(3)
     End Sub
+
+    Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
+        If (second <> 0) Then
+            second -= 1
+        Else 'nếu thành phần giây = 0
+            second = 59
+            If (minute <> 0) Then
+                minute -= 1
+            Else
+                MsgBox("Het gio")
+            End If
+        End If
+        'hiển thị thời gian còn lại lên Label lblTimeOut
+        lblTimeOut.Text = minute & " : " & second
+    End Sub
+
+    Private Sub endTest()
+        Dim temp As Integer
+        For Each question In questionSelecteds
+            temp = question.getIndexChecked
+            If (question.getAnswers.Item(temp).getCorrect) Then
+                Me.score += 1
+            End If
+        Next
+
+        //view lại
+    End Sub
+
+    Private Sub preview()
+
+
+    End Sub
+
 End Class
