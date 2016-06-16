@@ -34,7 +34,7 @@ Partial Class Login
         'txtUser
         '
         Me.txtUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUser.Location = New System.Drawing.Point(359, 115)
+        Me.txtUser.Location = New System.Drawing.Point(342, 87)
         Me.txtUser.Name = "txtUser"
         Me.txtUser.Size = New System.Drawing.Size(170, 29)
         Me.txtUser.TabIndex = 0
@@ -43,7 +43,7 @@ Partial Class Login
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(235, 118)
+        Me.Label1.Location = New System.Drawing.Point(218, 90)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 24)
         Me.Label1.TabIndex = 1
@@ -53,7 +53,7 @@ Partial Class Login
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(235, 189)
+        Me.Label2.Location = New System.Drawing.Point(218, 161)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 24)
         Me.Label2.TabIndex = 3
@@ -62,7 +62,7 @@ Partial Class Login
         'txtPass
         '
         Me.txtPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPass.Location = New System.Drawing.Point(359, 186)
+        Me.txtPass.Location = New System.Drawing.Point(342, 158)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.Size = New System.Drawing.Size(170, 29)
         Me.txtPass.TabIndex = 2
@@ -71,7 +71,7 @@ Partial Class Login
         'btnLogin
         '
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.Location = New System.Drawing.Point(391, 261)
+        Me.btnLogin.Location = New System.Drawing.Point(374, 233)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(138, 36)
         Me.btnLogin.TabIndex = 4
@@ -82,7 +82,7 @@ Partial Class Login
         '
         Me.lblAbout.AutoSize = True
         Me.lblAbout.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAbout.Location = New System.Drawing.Point(766, 438)
+        Me.lblAbout.Location = New System.Drawing.Point(637, 366)
         Me.lblAbout.Name = "lblAbout"
         Me.lblAbout.Size = New System.Drawing.Size(74, 16)
         Me.lblAbout.TabIndex = 5
@@ -91,7 +91,7 @@ Partial Class Login
         'btnSignUp
         '
         Me.btnSignUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSignUp.Location = New System.Drawing.Point(229, 261)
+        Me.btnSignUp.Location = New System.Drawing.Point(212, 233)
         Me.btnSignUp.Name = "btnSignUp"
         Me.btnSignUp.Size = New System.Drawing.Size(138, 36)
         Me.btnSignUp.TabIndex = 4
@@ -102,7 +102,10 @@ Partial Class Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(852, 469)
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(753, 422)
         Me.Controls.Add(Me.lblAbout)
         Me.Controls.Add(Me.btnSignUp)
         Me.Controls.Add(Me.btnLogin)
@@ -111,9 +114,9 @@ Partial Class Login
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtUser)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.IsMdiContainer = True
         Me.MaximizeBox = False
         Me.Name = "Login"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.ResumeLayout(False)
         Me.PerformLayout()

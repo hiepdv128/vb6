@@ -2,10 +2,10 @@
 Imports Microsoft.Office.Interop
 
 Public Class DataUpdate
-    Dim connect As New SqlConnection
+    Private connect As New SqlConnection("Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True;MultipleActiveResultSets=True")
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.CenterToScreen()
+        connect.Open()
     End Sub
 
     Private Sub AnswerBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
@@ -99,16 +99,13 @@ Public Class DataUpdate
 
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim constring As String = "Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True"
-        Dim con As New SqlConnection(constring)
-        con.Open()
         Dim index As Integer
         Dim content As String
 
         'add to subject table
         If (Not isIDSubjectExist(txtIDSubject.Text.Trim)) Then
             Dim subjectRow As DataGridViewRow = dgvSubject.Rows(0)
-            Dim subjectCommand As New SqlCommand("insert into subject values(@idsubject,@namesubject)", con)
+            Dim subjectCommand As New SqlCommand("insert into subject values(@idsubject,@namesubject)", connect)
             subjectCommand.Parameters.AddWithValue("@idsubject", subjectRow.Cells("IDSubject").Value)
             subjectCommand.Parameters.AddWithValue("@namesubject", subjectRow.Cells("NameSubject").Value)
             subjectCommand.ExecuteNonQuery()
@@ -120,7 +117,7 @@ Public Class DataUpdate
         For index = 0 To questionrows
             Dim row As DataGridViewRow = dgvQuestion.Rows(index)
             Try
-                Using cmd As New SqlCommand("insert into question values(@idsubject, @idquestion, @content)", con)
+                Using cmd As New SqlCommand("insert into question values(@idsubject, @idquestion, @content)", connect)
                     cmd.Parameters.AddWithValue("@idsubject", row.Cells("idsubjectquestion").Value)
                     cmd.Parameters.AddWithValue("@idquestion", row.Cells("idquestion").Value)
                     content = row.Cells("contentquestion").Value
@@ -139,7 +136,7 @@ Public Class DataUpdate
         For index = 0 To answerRows
             Dim row As DataGridViewRow = dgvAnswer.Rows(index)
             Try
-                Using cmd As New SqlCommand("INSERT INTO Answer VALUES(@IdSubject, @IDQuestion,@IDAnswer, @Content,@Correct)", con)
+                Using cmd As New SqlCommand("INSERT INTO Answer VALUES(@IdSubject, @IDQuestion,@IDAnswer, @Content,@Correct)", connect)
                     cmd.Parameters.AddWithValue("@IdSubject", txtIDSubject.Text.Trim)
                     cmd.Parameters.AddWithValue("@IDQuestion", row.Cells("IDQuestionAnswer").Value)
                     cmd.Parameters.AddWithValue("@IDAnswer", row.Cells("IDAnswer").Value)
@@ -159,31 +156,23 @@ Public Class DataUpdate
         txtLinkFile.Text = ""
         txtNameSubject.Text = ""
 
-        con.Close()
         MessageBox.Show("Records inserted.")
 
     End Sub
 
     Function getLastIDQuestion() As Integer
         Dim lastID As Integer = 0
-        Dim constring As String = "Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True"
-        Dim con As New SqlConnection(constring)
-        con.Open()
-        Dim cmd As New SqlCommand("select max(idquestion) from question", con)
+        Dim cmd As New SqlCommand("select max(idquestion) from question", connect)
         Dim result As String
         result = cmd.ExecuteScalar().ToString
         If (Not String.IsNullOrEmpty(result)) Then
             lastID = Val(result)
         End If
-        con.Close()
         Return lastID
     End Function
 
     Function isIDSubjectExist(idSubject As String) As Boolean
-        Dim constring As String = "Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True"
-        Dim con As New SqlConnection(constring)
-        con.Open()
-        Dim cmd As New SqlCommand("select namesubject from subject where idsubject = '" & idSubject & "'", con)
+        Dim cmd As New SqlCommand("select namesubject from subject where idsubject = '" & idSubject & "'", connect)
 
         Try
             Dim result As String = cmd.ExecuteScalar().ToString
@@ -192,15 +181,14 @@ Public Class DataUpdate
                 txtNameSubject.Text = result
                 Return True
             End If
-            con.Close()
+            connect.Close()
         Catch ex As Exception
             Return False
         End Try
         Return False
     End Function
 
-    Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
-        'ViewData.MdiParent = Me
+    Private Sub btnView_Click(sender As Object, e As EventArgs)
         ViewData.Show()
     End Sub
 
@@ -211,5 +199,11 @@ Public Class DataUpdate
         dgvAnswer.Rows.Clear()
         dgvQuestion.Rows.Clear()
         dgvSubject.Rows.Clear()
+    End Sub
+
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Hide()
+        ShowMenu.Show()
     End Sub
 End Class

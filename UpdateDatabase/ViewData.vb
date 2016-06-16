@@ -13,30 +13,30 @@ Public Class ViewData
     End Sub
 
     Private Sub loadSubject()
-        Dim cmd As New SqlCommand("select *from subject", connect)
+        Dim cmd As New SqlCommand("SELECT * FROM SUBJECT", connect)
         Dim adapter As New SqlDataAdapter()
-        adapter.SelectCommand = cmd
         Dim data As New DataSet
+        adapter.SelectCommand = cmd
         adapter.Fill(data)
         dtbSubject = data.Tables(0)
         dgvSubjectView.DataSource = dtbSubject
     End Sub
 
     Private Sub loadQuestion()
-        Dim cmd As New SqlCommand("select * from question", connect)
+        Dim cmd As New SqlCommand("SELECT * FROM QUESTION", connect)
         Dim adapter As New SqlDataAdapter()
-        adapter.SelectCommand = cmd
         Dim data As New DataSet
+        adapter.SelectCommand = cmd
         adapter.Fill(data)
         dtbQuestion = data.Tables(0)
         dgvQuestionView.DataSource = dtbQuestion
     End Sub
 
     Private Sub loadAnswer()
-        Dim cmd As New SqlCommand("select * from answer", connect)
+        Dim cmd As New SqlCommand("SELECT * FROM ANSWER", connect)
         Dim adapter As New SqlDataAdapter()
-        adapter.SelectCommand = cmd
         Dim data As New DataSet
+        adapter.SelectCommand = cmd
         adapter.Fill(data)
         dtbAnswer = data.Tables(0)
         dgvAnswerView.DataSource = dtbAnswer
@@ -55,7 +55,7 @@ Public Class ViewData
         Dim idSubject As String = rowCurrent.Cells(0).Value.ToString
         If (contentCurrent <> contentLast) Then
             If MessageBox.Show("Bạn muốn chỉnh sửa bản ghi này, việc này ảnh hưởng tới tất cả DB, hành động này không thể undo. Bạn đã cân nhắc kỹ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
-                Dim cmdUpdateSubject As New SqlCommand("update Subject set NameSubject = N'" & contentCurrent & "' where IDSubject = '" & idSubject & "'", connect)
+                Dim cmdUpdateSubject As New SqlCommand("UPDATE SUBJECT SET NAMESUBJECT = N'" & contentCurrent & "' WHERE IDSUBJECT = '" & idSubject & "'", connect)
                 cmdUpdateSubject.ExecuteNonQuery()
             Else
                 rowCurrent.Cells(1).Value = contentLast
@@ -75,10 +75,10 @@ Public Class ViewData
         Dim idQuestion As String = rowCurrent.Cells(1).Value.ToString
         If (contentCurrent <> contentLast) Then
             If MessageBox.Show("Bạn muốn chỉnh sửa bản ghi này, việc này ảnh hưởng tới tất cả DB, hành động này không thể undo. Bạn đã cân nhắc kỹ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
-                Dim cmdUpdateQuestion As New SqlCommand("update Question set contentquestion = @content where IDSubject = @idsubject and idquestion = @idquestion", connect)
-                cmdUpdateQuestion.Parameters.AddWithValue("@content", contentCurrent)
-                cmdUpdateQuestion.Parameters.AddWithValue("@idsubject", idSubject)
-                cmdUpdateQuestion.Parameters.AddWithValue("@idquestion", idQuestion)
+                Dim cmdUpdateQuestion As New SqlCommand("UPDATE QUESTION SET CONTENTQUESTION = @CONTENT WHERE IDSUBJECT = @IDSUBJECT AND IDQUESTION = @IDQUESTION", connect)
+                cmdUpdateQuestion.Parameters.AddWithValue("@CONTENT", contentCurrent)
+                cmdUpdateQuestion.Parameters.AddWithValue("@IDSUBJECT", idSubject)
+                cmdUpdateQuestion.Parameters.AddWithValue("@IDQUESTION", idQuestion)
                 cmdUpdateQuestion.ExecuteNonQuery()
             Else
                 rowCurrent.Cells(2).Value = contentLast
@@ -99,11 +99,11 @@ Public Class ViewData
         Dim idAnswer As String = rowCurrent.Cells(2).Value.ToString
         If (contentCurrent <> contentLast) Then
             If MessageBox.Show("Bạn muốn chỉnh sửa bản ghi này, việc này ảnh hưởng tới tất cả DB, hành động này không thể undo. Bạn đã cân nhắc kỹ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
-                Dim cmdUpdateQuestion As New SqlCommand("update answer set contentanswer = @content where IDSubject = @idsubject and idquestion = @idquestion and idanswer = @idanswer", connect)
-                cmdUpdateQuestion.Parameters.AddWithValue("@content", contentCurrent)
-                cmdUpdateQuestion.Parameters.AddWithValue("@idsubject", idSubject)
-                cmdUpdateQuestion.Parameters.AddWithValue("@idquestion", idQuestion)
-                cmdUpdateQuestion.Parameters.AddWithValue("@idanswer", idAnswer)
+                Dim cmdUpdateQuestion As New SqlCommand("UPDATE ANSWER SET CONTENTANSWER = @CONTENT WHERE IDSUBJECT = @IDSUBJECT AND IDQUESTION = @IDQUESTION AND IDANSWER = @IDANSWER", connect)
+                cmdUpdateQuestion.Parameters.AddWithValue("@CONTENT", contentCurrent)
+                cmdUpdateQuestion.Parameters.AddWithValue("@IDSUBJECT", idSubject)
+                cmdUpdateQuestion.Parameters.AddWithValue("@IDQUESTION", idQuestion)
+                cmdUpdateQuestion.Parameters.AddWithValue("@IDANSWER", idAnswer)
                 cmdUpdateQuestion.ExecuteNonQuery()
             Else
                 rowCurrent.Cells(3).Value = contentLast
@@ -137,12 +137,13 @@ Public Class ViewData
             If MessageBox.Show("Bạn thực sự đã cân nhắc kỹ?", "Cảnh báo cấp 2", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
                 Dim idSubject As String = e.Row.Cells(0).Value.ToString
                 Dim cmd As SqlCommand
-                cmd = New SqlCommand("delete from answer where idsubject = '" & idSubject & "'", connect)
+                cmd = New SqlCommand("DELETE FROM ANSWER WHERE IDSUBJECT = '" & idSubject & "'", connect)
                 cmd.ExecuteNonQuery()
-                cmd = New SqlCommand("delete from question where idsubject = '" & idSubject & "'", connect)
+                cmd = New SqlCommand("DELETE FROM QUESTION WHERE IDSUBJECT = '" & idSubject & "'", connect)
                 cmd.ExecuteNonQuery()
-                cmd = New SqlCommand("delete from subject where idsubject = '" & idSubject & "'", connect)
+                cmd = New SqlCommand("DELETE FROM SUBJECT WHERE IDSUBJECT = '" & idSubject & "'", connect)
                 cmd.ExecuteNonQuery()
+
                 loadQuestion()
                 loadAnswer()
             Else
@@ -155,9 +156,9 @@ Public Class ViewData
 
     Private Sub dgvSubjectView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSubjectView.RowHeaderMouseDoubleClick
         Dim count As Integer = dgvSubjectView.RowCount
+        Dim dvQuestion, dvAnswer As DataView
         If (e.RowIndex < count - 1) Then
             Dim idSubjectFocus As String = dgvSubjectView.Rows(e.RowIndex).Cells(0).Value.ToString
-            Dim dvQuestion, dvAnswer As DataView
             dvQuestion = New DataView(dtbQuestion, "IDSubject = '" & idSubjectFocus & "'", "idquestion asc", DataViewRowState.CurrentRows)
             dvAnswer = New DataView(dtbAnswer, "IDSubject = '" & idSubjectFocus & "'", "idquestion asc", DataViewRowState.CurrentRows)
             dgvQuestionView.DataSource = dvQuestion
@@ -234,14 +235,14 @@ Public Class ViewData
 
     Private Sub deleteQuestion(idQuestion As String, idSubject As String)
         Dim cmd As SqlCommand
-        cmd = New SqlCommand("delete from answer where idsubject = @idsubject and idquestion = @idquestion", connect)
-        cmd.Parameters.AddWithValue("@idsubject", idSubject)
-        cmd.Parameters.AddWithValue("@idquestion", idQuestion)
-        cmd.ExecuteNonQuery()
 
-        cmd = New SqlCommand("delete from question where idsubject = @idsubject and idquestion = @idquestion", connect)
-        cmd.Parameters.AddWithValue("@idsubject", idSubject)
-        cmd.Parameters.AddWithValue("@idquestion", idQuestion)
+        cmd = New SqlCommand("DELETE FROM ANSWER WHERE IDSUBJECT = @IDSUBJECT AND IDQUESTION = @IDQUESTION", connect)
+        cmd.Parameters.AddWithValue("@IDSUBJECT", idSubject)
+        cmd.Parameters.AddWithValue("@IDQUESTION", idQuestion)
+        cmd.ExecuteNonQuery()
+        cmd = New SqlCommand("DELETE FROM QUESTION WHERE IDSUBJECT = @IDSUBJECT AND IDQUESTION = @IDQUESTION", connect)
+        cmd.Parameters.AddWithValue("@IDSUBJECT", idSubject)
+        cmd.Parameters.AddWithValue("@IDQUESTION", idQuestion)
         cmd.ExecuteNonQuery()
     End Sub
 
@@ -286,7 +287,7 @@ Public Class ViewData
     End Sub
     ' chua hoan thien
     Private Sub filterByContentQuestion(content As String)
-        Dim sql As String = "select * from Question where ContentQuestion like N'%" & content & "%'"
+        Dim sql As String = "SELECT * FROM QUESTION WHERE CONTENTQUESTION LIKE N'%" & content & "%'"
         Dim cmd As New SqlCommand(sql, connect)
         Dim adapter As New SqlDataAdapter
         Dim dataQuestion As New DataSet
@@ -294,16 +295,16 @@ Public Class ViewData
         adapter.Fill(dataQuestion)
         dgvQuestionView.DataSource = dataQuestion.Tables(0)
 
-        sql = "select * from subject where IDSubject = (select IDSubject from Question where ContentQuestion like N'%" & content & "%' group by IDSubject)"
+        sql = "SELECT * FROM SUBJECT WHERE IDSUBJECT = (SELECT IDSUBJECT FROM QUESTION WHERE CONTENTQUESTION LIKE N'%" & content & "%' GROUP BY IDSUBJECT)"
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataSubject As New DataSet
         adapter.Fill(dataSubject)
         dgvSubjectView.DataSource = dataSubject.Tables(0)
 
-        sql = "select * from Answer where " & _
-            "IDSubject = (select IDSubject from Question where ContentQuestion like N'%" & content & "%' group by IDSubject) " & _
-            "and IDQuestion in (select IDQuestion from Question where ContentQuestion like N'%" & content & "%')"
+        sql = "SELECT * FROM ANSWER WHERE " & _
+            "IDSUBJECT = (SELECT IDSUBJECT FROM QUESTION WHERE CONTENTQUESTION LIKE N'%" & content & "%' GROUP BY IDSUBJECT) " & _
+            "AND IDQUESTION IN (SELECT IDQUESTION FROM QUESTION WHERE CONTENTQUESTION LIKE N'%" & content & "%')"
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataAnswer As New DataSet
@@ -312,7 +313,7 @@ Public Class ViewData
     End Sub
 
     Private Sub filterByIDQuestion(idQuestion As String)
-        Dim sql As String = "select * from Question where idquestion = " & idQuestion
+        Dim sql As String = "SELECT * FROM QUESTION WHERE IDQUESTION = " & idQuestion
         Dim cmd As New SqlCommand(sql, connect)
         Dim adapter As New SqlDataAdapter
         Dim dataQuestion As New DataSet
@@ -320,16 +321,16 @@ Public Class ViewData
         adapter.Fill(dataQuestion)
         dgvQuestionView.DataSource = dataQuestion.Tables(0)
 
-        sql = "select * from subject where IDSubject in (select idsubject from Question where idquestion = " & idQuestion & ")"
+        sql = "SELECT * FROM SUBJECT WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM QUESTION WHERE IDQUESTION = " & idQuestion & ")"
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataSubject As New DataSet
         adapter.Fill(dataSubject)
         dgvSubjectView.DataSource = dataSubject.Tables(0)
 
-        sql = "select * from Answer where " & _
-            "IDSubject in (select idsubject from Question where idquestion = " & idQuestion & ")" & _
-            "and IDQuestion in (select IDQuestion from Question where idquestion = " & idQuestion & ")"
+        sql = "SELECT * FROM ANSWER WHERE " & _
+            "IDSUBJECT IN (SELECT IDSUBJECT FROM QUESTION WHERE IDQUESTION = " & idQuestion & ")" & _
+            "AND IDQUESTION IN (SELECT IDQUESTION FROM QUESTION WHERE IDQUESTION = " & idQuestion & ")"
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataAnswer As New DataSet
@@ -338,7 +339,7 @@ Public Class ViewData
     End Sub
 
     Private Sub filterByNameSubjectIdQuestion(nameSubject As String, idQuestion As String)
-        Dim sql As String = "select * from subject where namesubject like N'%" & nameSubject & "%'"
+        Dim sql As String = "SELECT * FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%'"
         Dim cmd As New SqlCommand(sql, connect)
         Dim adapter As New SqlDataAdapter
         Dim dataSubject As New DataSet
@@ -346,17 +347,17 @@ Public Class ViewData
         adapter.Fill(dataSubject)
         dgvSubjectView.DataSource = dataSubject.Tables(0)
 
-        sql = "select * from question where IDSubject in (select idsubject from subject where namesubject like N'%" & nameSubject & "%')" & _
-             "and idquestion = " & idQuestion
+        sql = "SELECT * FROM QUESTION WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%')" & _
+             "AND IDQUESTION = " & idQuestion
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataQuestion As New DataSet
         adapter.Fill(dataQuestion)
         dgvQuestionView.DataSource = dataQuestion.Tables(0)
 
-        sql = "select * from Answer where " & _
-            "IDSubject in (select idsubject from subject where namesubject like N'%" & nameSubject & "%')" & _
-            "and IDQuestion = " & idQuestion
+        sql = "SELECT * FROM ANSWER WHERE " & _
+            "IDSUBJECT IN (SELECT IDSUBJECT FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%')" & _
+            "AND IDQUESTION = " & idQuestion
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataAnswer As New DataSet
@@ -365,7 +366,7 @@ Public Class ViewData
     End Sub
 
     Private Sub filterByIdSubjectContentQuestion(idSubject As String, contentQuestion As String)
-        Dim sql As String = "select * from subject where idsubject = '" & idSubject & "'"
+        Dim sql As String = "SELECT * FROM SUBJECT WHERE IDSUBJECT = '" & idSubject & "'"
         Dim cmd As New SqlCommand(sql, connect)
         Dim adapter As New SqlDataAdapter
         Dim dataSubject As New DataSet
@@ -373,17 +374,17 @@ Public Class ViewData
         adapter.Fill(dataSubject)
         dgvSubjectView.DataSource = dataSubject.Tables(0)
 
-        sql = "select * from question where contentquestion like N'%" & contentQuestion & "%'" & _
-             "and idsubject = '" & idSubject & "'"
+        sql = "SELECT * FROM QUESTION WHERE CONTENTQUESTION LIKE N'%" & contentQuestion & "%'" & _
+             "AND IDSUBJECT = '" & idSubject & "'"
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataQuestion As New DataSet
         adapter.Fill(dataQuestion)
         dgvQuestionView.DataSource = dataQuestion.Tables(0)
 
-        sql = "select * from Answer where " & _
-            "idquestion in (select idquestion from question where contentquestion like N'%" & contentQuestion & "%' and idsubject = '" & idSubject & "')" & _
-            "and idsubject = '" & idSubject & "'"
+        sql = "SELECT * FROM ANSWER WHERE " & _
+            "IDQUESTION IN (SELECT IDQUESTION FROM QUESTION WHERE CONTENTQUESTION LIKE N'%" & contentQuestion & "%' AND IDSUBJECT = '" & idSubject & "')" & _
+            "AND IDSUBJECT = '" & idSubject & "'"
         cmd = New SqlCommand(sql, connect)
         adapter.SelectCommand = cmd
         Dim dataAnswer As New DataSet
@@ -418,54 +419,59 @@ Public Class ViewData
     End Sub
 
     Private Sub cmbSubjectFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSubjectFilter.SelectedIndexChanged
-        Dim cmd As New SqlCommand("SELECT * FROM subject", connect)
-        Dim ds As New DataSet
-        Dim da As New SqlDataAdapter(cmd)
-        da.Fill(ds, "list")
-        Dim col As New AutoCompleteStringCollection
-        Dim i, count, index As Integer
-        Dim table As DataTable = ds.Tables(0)
-        count = ds.Tables(0).Rows.Count
+        Dim cmd As New SqlCommand("SELECT * FROM SUBJECT", connect)
+        Dim data As New DataSet
+        Dim adapter As New SqlDataAdapter(cmd)
 
+        Dim collection As New AutoCompleteStringCollection
+        Dim i, count, index As Integer
+        Dim table As DataTable
+
+        adapter.Fill(data, "list")
+        table = data.Tables(0)
+        count = table.Rows.Count
         index = cmbSubjectFilter.SelectedIndex
         If (index = 0) Then
             For i = 0 To count - 1
-                col.Add(table.Rows(i)("idsubject").ToString())
+                collection.Add(table.Rows(i)("idsubject").ToString())
             Next
         ElseIf (index = 1) Then
             For i = 0 To count - 1
-                col.Add(table.Rows(i)("namesubject").ToString())
+                collection.Add(table.Rows(i)("namesubject").ToString())
             Next
         End If
-
         txtSubjectFilter.AutoCompleteSource = AutoCompleteSource.CustomSource
-        txtSubjectFilter.AutoCompleteCustomSource = col
+        txtSubjectFilter.AutoCompleteCustomSource = collection
         txtSubjectFilter.AutoCompleteMode = AutoCompleteMode.Suggest
     End Sub
 
     Private Sub cmbQuestionFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbQuestionFilter.SelectedIndexChanged
-        Dim cmd As New SqlCommand("SELECT idquestion,contentquestion FROM question", connect)
-        Dim ds As New DataSet
-        Dim da As New SqlDataAdapter(cmd)
-        da.Fill(ds, "list")
-        Dim col As New AutoCompleteStringCollection
+        Dim cmd As New SqlCommand("SELECT IDQUESTION,CONTENTQUESTION FROM QUESTION", connect)
+        Dim data As New DataSet
+        Dim adapter As New SqlDataAdapter(cmd)
+        Dim colection As New AutoCompleteStringCollection
         Dim i, count, index As Integer
-        Dim table As DataTable = ds.Tables(0)
-        count = ds.Tables(0).Rows.Count
+        Dim table As DataTable
+
+        adapter.Fill(data, "list")
+        table = data.Tables(0)
+        count = table.Rows.Count
 
         index = cmbQuestionFilter.SelectedIndex
         If (index = 0) Then
             For i = 0 To count - 1
-                col.Add(table.Rows(i)("idquestion").ToString())
+                colection.Add(table.Rows(i)("idquestion").ToString())
             Next
         ElseIf (index = 1) Then
             For i = 0 To count - 1
-                col.Add(table.Rows(i)("contentquestion").ToString())
+                colection.Add(table.Rows(i)("contentquestion").ToString())
             Next
         End If
 
         txtQuestionFilter.AutoCompleteSource = AutoCompleteSource.CustomSource
-        txtQuestionFilter.AutoCompleteCustomSource = col
+        txtQuestionFilter.AutoCompleteCustomSource = colection
         txtQuestionFilter.AutoCompleteMode = AutoCompleteMode.Suggest
     End Sub
+
+
 End Class

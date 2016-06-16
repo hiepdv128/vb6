@@ -15,3 +15,5 @@ C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Deb
 C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.xml
 C:\Users\MYTH\Documents\GitHub\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.pdb
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.Test.resources
+F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.SignUp.resources
+F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.Achievement.resources

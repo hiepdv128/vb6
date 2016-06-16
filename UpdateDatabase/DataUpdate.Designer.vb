@@ -23,18 +23,15 @@ Partial Class DataUpdate
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.AnswerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dgvAnswer = New System.Windows.Forms.DataGridView()
         Me.IDQuestionAnswer = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDAnswer = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContentAnswer = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Correct = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QuestionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dgvQuestion = New System.Windows.Forms.DataGridView()
         Me.IDSubjectQuestion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDQuestion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContentQuestion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dgvSubject = New System.Windows.Forms.DataGridView()
         Me.IDSubject = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameSubject = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,21 +46,20 @@ Partial Class DataUpdate
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnView = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.AnswerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QuestionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SubjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnBack = New System.Windows.Forms.Button()
         CType(Me.dgvAnswer, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvQuestion, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SubjectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvSubject, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SubjectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'AnswerBindingSource
-        '
-        Me.AnswerBindingSource.DataMember = "Answer"
         '
         'dgvAnswer
         '
@@ -100,10 +96,6 @@ Partial Class DataUpdate
         Me.Correct.HeaderText = "Correct"
         Me.Correct.Name = "Correct"
         Me.Correct.Width = 301
-        '
-        'QuestionBindingSource
-        '
-        Me.QuestionBindingSource.DataMember = "Question"
         '
         'dgvQuestion
         '
@@ -142,10 +134,6 @@ Partial Class DataUpdate
         Me.ContentQuestion.Name = "ContentQuestion"
         Me.ContentQuestion.Width = 228
         '
-        'SubjectBindingSource
-        '
-        Me.SubjectBindingSource.DataMember = "Subject"
-        '
         'dgvSubject
         '
         Me.dgvSubject.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -176,7 +164,7 @@ Partial Class DataUpdate
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(59, 15)
+        Me.Label1.Location = New System.Drawing.Point(188, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 20)
         Me.Label1.TabIndex = 5
@@ -185,7 +173,7 @@ Partial Class DataUpdate
         'btnExecute
         '
         Me.btnExecute.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExecute.Location = New System.Drawing.Point(670, 41)
+        Me.btnExecute.Location = New System.Drawing.Point(799, 41)
         Me.btnExecute.Name = "btnExecute"
         Me.btnExecute.Size = New System.Drawing.Size(98, 26)
         Me.btnExecute.TabIndex = 6
@@ -195,7 +183,7 @@ Partial Class DataUpdate
         'txtIDSubject
         '
         Me.txtIDSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIDSubject.Location = New System.Drawing.Point(170, 41)
+        Me.txtIDSubject.Location = New System.Drawing.Point(299, 41)
         Me.txtIDSubject.Name = "txtIDSubject"
         Me.txtIDSubject.Size = New System.Drawing.Size(92, 26)
         Me.txtIDSubject.TabIndex = 7
@@ -203,7 +191,7 @@ Partial Class DataUpdate
         'btnOpen
         '
         Me.btnOpen.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOpen.Location = New System.Drawing.Point(670, 9)
+        Me.btnOpen.Location = New System.Drawing.Point(799, 9)
         Me.btnOpen.Name = "btnOpen"
         Me.btnOpen.Size = New System.Drawing.Size(98, 26)
         Me.btnOpen.TabIndex = 8
@@ -213,12 +201,13 @@ Partial Class DataUpdate
         'openFileDialog
         '
         Me.openFileDialog.FileName = "OpenFileDialog"
+        Me.openFileDialog.Filter = "*.xls|*.xlsx"
         '
         'txtLinkFile
         '
         Me.txtLinkFile.Enabled = False
         Me.txtLinkFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLinkFile.Location = New System.Drawing.Point(170, 9)
+        Me.txtLinkFile.Location = New System.Drawing.Point(299, 9)
         Me.txtLinkFile.Name = "txtLinkFile"
         Me.txtLinkFile.Size = New System.Drawing.Size(459, 26)
         Me.txtLinkFile.TabIndex = 7
@@ -226,7 +215,7 @@ Partial Class DataUpdate
         'txtNameSubject
         '
         Me.txtNameSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNameSubject.Location = New System.Drawing.Point(388, 41)
+        Me.txtNameSubject.Location = New System.Drawing.Point(517, 41)
         Me.txtNameSubject.Name = "txtNameSubject"
         Me.txtNameSubject.Size = New System.Drawing.Size(241, 26)
         Me.txtNameSubject.TabIndex = 7
@@ -234,7 +223,7 @@ Partial Class DataUpdate
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(885, 11)
+        Me.btnSave.Location = New System.Drawing.Point(1014, 11)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(162, 56)
         Me.btnSave.TabIndex = 9
@@ -250,7 +239,7 @@ Partial Class DataUpdate
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(59, 44)
+        Me.Label2.Location = New System.Drawing.Point(188, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(94, 20)
         Me.Label2.TabIndex = 10
@@ -260,25 +249,16 @@ Partial Class DataUpdate
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(273, 44)
+        Me.Label3.Location = New System.Drawing.Point(402, 44)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(104, 20)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Tên Môn Học"
         '
-        'btnView
-        '
-        Me.btnView.Location = New System.Drawing.Point(1124, 14)
-        Me.btnView.Name = "btnView"
-        Me.btnView.Size = New System.Drawing.Size(97, 53)
-        Me.btnView.TabIndex = 12
-        Me.btnView.Text = "View Data"
-        Me.btnView.UseVisualStyleBackColor = True
-        '
         'btnReset
         '
         Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Location = New System.Drawing.Point(789, 12)
+        Me.btnReset.Location = New System.Drawing.Point(918, 12)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(74, 52)
         Me.btnReset.TabIndex = 13
@@ -288,19 +268,41 @@ Partial Class DataUpdate
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(170, 75)
+        Me.Label4.Location = New System.Drawing.Point(299, 75)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(256, 13)
         Me.Label4.TabIndex = 14
         Me.Label4.Text = "*Lưu ý: mỗi file đưa vào sẽ chứa nội dung 1 môn học"
         '
+        'AnswerBindingSource
+        '
+        Me.AnswerBindingSource.DataMember = "Answer"
+        '
+        'QuestionBindingSource
+        '
+        Me.QuestionBindingSource.DataMember = "Question"
+        '
+        'SubjectBindingSource
+        '
+        Me.SubjectBindingSource.DataMember = "Subject"
+        '
+        'btnBack
+        '
+        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.Location = New System.Drawing.Point(24, 12)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(105, 55)
+        Me.btnBack.TabIndex = 15
+        Me.btnBack.Text = "Trở về"
+        Me.btnBack.UseVisualStyleBackColor = True
+        '
         'DataUpdate
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(1235, 642)
+        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnReset)
-        Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSave)
@@ -316,15 +318,16 @@ Partial Class DataUpdate
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MaximizeBox = False
         Me.Name = "DataUpdate"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Thêm câu hỏi"
         Me.TransparencyKey = System.Drawing.Color.MediumBlue
-        CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvAnswer, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvQuestion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SubjectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvSubject, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AnswerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QuestionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SubjectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -356,8 +359,8 @@ Partial Class DataUpdate
     Friend WithEvents FileSystemWatcher1 As System.IO.FileSystemWatcher
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents btnView As System.Windows.Forms.Button
     Friend WithEvents btnReset As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents btnBack As System.Windows.Forms.Button
 
 End Class

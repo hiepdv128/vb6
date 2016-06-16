@@ -52,6 +52,7 @@ Partial Class ViewData
         'dgvSubjectView
         '
         Me.dgvSubjectView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvSubjectView.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dgvSubjectView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSubjectView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idSubject, Me.nameSubject})
         Me.dgvSubjectView.Location = New System.Drawing.Point(12, 198)
@@ -75,6 +76,7 @@ Partial Class ViewData
         'dgvQuestionView
         '
         Me.dgvQuestionView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvQuestionView.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dgvQuestionView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvQuestionView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idSubjectQuestion, Me.idQuestion, Me.contentQuestion})
         Me.dgvQuestionView.Location = New System.Drawing.Point(311, 198)
@@ -105,6 +107,7 @@ Partial Class ViewData
         'dgvAnswerView
         '
         Me.dgvAnswerView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvAnswerView.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dgvAnswerView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAnswerView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idSubjectAnswer, Me.idQuestionAnswer, Me.idAnswer, Me.contentAnswer, Me.correct})
         Me.dgvAnswerView.Location = New System.Drawing.Point(729, 198)

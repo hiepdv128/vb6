@@ -99,6 +99,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SignUp.Designer.vb">
+      <DependentUpon>SignUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Test.Designer.vb">
       <DependentUpon>Test.vb</DependentUpon>
     </Compile>
@@ -109,6 +115,12 @@
       <DependentUpon>SelectSubject.vb</DependentUpon>
     </Compile>
     <Compile Include="SelectSubject.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThanhTich.Designer.vb">
+      <DependentUpon>ThanhTich.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ThanhTich.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -125,11 +137,17 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectSubject.resx">
       <DependentUpon>SelectSubject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThanhTich.resx">
+      <DependentUpon>ThanhTich.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
