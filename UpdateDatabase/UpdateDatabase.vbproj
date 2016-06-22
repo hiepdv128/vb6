@@ -98,10 +98,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewData.Designer.vb">
-      <DependentUpon>ViewData.vb</DependentUpon>
+    <Compile Include="AddUser.designer.vb">
+      <DependentUpon>AddUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="ViewData.vb">
+    <Compile Include="AddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewQuestion.Designer.vb">
+      <DependentUpon>ViewQuestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewQuestion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewUser.Designer.vb">
@@ -124,8 +130,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewData.resx">
-      <DependentUpon>ViewData.vb</DependentUpon>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewQuestion.resx">
+      <DependentUpon>ViewQuestion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewUser.resx">
       <DependentUpon>ViewUser.vb</DependentUpon>
@@ -171,6 +180,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_add_question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_view_alluser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_view_question.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

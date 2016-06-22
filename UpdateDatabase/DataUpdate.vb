@@ -4,14 +4,52 @@ Imports Microsoft.Office.Interop
 Public Class DataUpdate
     Private connect As New SqlConnection("Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True;MultipleActiveResultSets=True")
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        connect.Open()
+    Private Sub DataUpdate_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        If (Me.Visible) Then
+            connect.Open()
+            AutoCompeleteSubject()
+        End If
     End Sub
 
-    Private Sub AnswerBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
-        Me.Validate()
-        Me.AnswerBindingSource.EndEdit()
+    Private Sub AutoCompeleteSubject()
+        Dim cmd As SqlCommand
+        Dim data As New DataSet
+        Dim adapter As New SqlDataAdapter
+        Dim colection As New AutoCompleteStringCollection
+        Dim i, count As Integer
+        Dim table As DataTable
+        Dim query As String = "SELECT IDSUBJECT FROM SUBJECT"
+
+        cmd = New SqlCommand(query, connect)
+        adapter.SelectCommand = cmd
+        adapter.Fill(data)
+        table = data.Tables(0)
+        count = table.Rows.Count
+        For i = 0 To count - 1
+            colection.Add(table.Rows(i)(0).ToString())
+        Next
+        txtIDSubject.AutoCompleteCustomSource.Clear()
+        txtIDSubject.AutoCompleteCustomSource = colection
     End Sub
+
+    'Private Sub AnswerBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+    '    Me.Validate()
+    '    Me.AnswerBindingSource.EndEdit()
+    'End Sub
+
+    Private Sub txtIDSubject_Leave(sender As Object, e As EventArgs) Handles txtIDSubject.Leave
+        Dim id As String = txtIDSubject.Text
+        Dim cmd As New SqlCommand("select namesubject from subject where idsubject = '" & id & "'", connect)
+        Try
+            Dim result As String = cmd.ExecuteScalar().ToString
+            If (Not String.IsNullOrEmpty(result)) Then
+                txtNameSubject.Text = result
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecute.Click
         'choose file
         If (txtLinkFile.Text = "") Then
@@ -19,7 +57,7 @@ Public Class DataUpdate
         End If
 
         If (txtIDSubject.Text.Length > 0) Then
-            If (Me.isIDSubjectExist(txtIDSubject.Text) Or txtNameSubject.Text.Length > 0) Then
+            If (txtNameSubject.Text.Length > 0) Then
                 dgvSubject.Rows.Add(txtIDSubject.Text, txtNameSubject.Text)
 
                 Dim excel As Excel.Application
@@ -48,43 +86,55 @@ Public Class DataUpdate
                 Dim correct As Integer
 
                 max_cell = UBound(arr_cell, 1)
-                For i = 1 To max_cell
-                    str = arr_cell.GetValue(i, 1).ToString.Trim
 
-                    'check row is question
-                    'change de kiem tra da doc het 4 cau tra loi chua
-                    If (str.Substring(str.Length - 1).Equals(":") Or str.Substring(str.Length - 1).Equals("?") And change = True) Then
-                        change = False
-                        dgvQuestion.Rows.Add(txtIDSubject.Text, id_qs, str)
-                    ElseIf (Not change) Then
-                        If (str.Substring(str.Length - 1).Equals("*")) Then
-                            correct = 1
-                            'delete symbol '*'
-                            str = str.Substring(0, str.Length - 1)
-                        Else
-                            correct = 0
-                        End If
+                'check file is hop le
+                Try
+                    For i = 1 To max_cell
+                        str = arr_cell.GetValue(i, 1).ToString.Trim
 
-                        dgvAnswer.Rows.Add(id_qs, id_qs & "" & id_as, str, correct)
-                        If (id_as < 4) Then
-                            id_as = id_as + 1
-                        Else
-                            id_as = 1
-                            id_qs = id_qs + 1
-                            change = True
+                        'check row is question
+                        'change de kiem tra da doc het 4 cau tra loi chua
+                        If (str.Substring(str.Length - 1).Equals(":") Or str.Substring(str.Length - 1).Equals("?") And change = True) Then
+                            change = False
+                            dgvQuestion.Rows.Add(txtIDSubject.Text, id_qs, str)
+                        ElseIf (Not change) Then
+                            If (str.Substring(str.Length - 1).Equals("*")) Then
+                                correct = 1
+                                'delete symbol '*'
+                                str = str.Substring(0, str.Length - 1)
+                            Else
+                                correct = 0
+                            End If
+
+                            dgvAnswer.Rows.Add(id_qs, id_qs & "" & id_as, str, correct)
+                            If (id_as < 4) Then
+                                id_as = id_as + 1
+                            Else
+                                id_as = 1
+                                id_qs = id_qs + 1
+                                change = True
+                            End If
                         End If
-                    End If
-                Next
-                excel.Quit()
+                    Next
+                    excel.Quit()
+                Catch ex As Exception
+                    MessageBox.Show("Bạn đã nhập vào file không đúng định dạng!", "Lưu ý")
+                    btnReset.PerformClick()
+                End Try
+
+                If (dgvQuestion.RowCount = 0 OrElse dgvAnswer.RowCount = 0) Then
+                    MessageBox.Show("Bạn đã nhập vào file không đúng định dạng!", "Lưu ý")
+                    btnReset.PerformClick()
+                End If
 
             Else
                 MessageBox.Show("Vui lòng nhập tên môn học", "Lưu ý")
-                txtIDSubject.Focus()
+                txtNameSubject.Focus()
             End If
 
         Else
             MessageBox.Show("Xin hãy nhập ID môn học!", "Lưu ý")
-            txtNameSubject.Focus()
+            txtIDSubject.Focus()
         End If
     End Sub
 
@@ -101,6 +151,11 @@ Public Class DataUpdate
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim index As Integer
         Dim content As String
+
+        If (dgvSubject.Rows.Count = 0) Then
+            MessageBox.Show("Bạn hãy lựa chọn file trước khi thêm vào db", "Nhắc nhở")
+            Exit Sub
+        End If
 
         'add to subject table
         If (Not isIDSubjectExist(txtIDSubject.Text.Trim)) Then
@@ -136,8 +191,7 @@ Public Class DataUpdate
         For index = 0 To answerRows
             Dim row As DataGridViewRow = dgvAnswer.Rows(index)
             Try
-                Using cmd As New SqlCommand("INSERT INTO Answer VALUES(@IdSubject, @IDQuestion,@IDAnswer, @Content,@Correct)", connect)
-                    cmd.Parameters.AddWithValue("@IdSubject", txtIDSubject.Text.Trim)
+                Using cmd As New SqlCommand("INSERT INTO Answer VALUES(@IDQuestion,@IDAnswer, @Content,@Correct)", connect)
                     cmd.Parameters.AddWithValue("@IDQuestion", row.Cells("IDQuestionAnswer").Value)
                     cmd.Parameters.AddWithValue("@IDAnswer", row.Cells("IDAnswer").Value)
                     content = row.Cells("ContentAnswer").Value
@@ -157,7 +211,6 @@ Public Class DataUpdate
         txtNameSubject.Text = ""
 
         MessageBox.Show("Records inserted.")
-
     End Sub
 
     Function getLastIDQuestion() As Integer
@@ -181,16 +234,12 @@ Public Class DataUpdate
                 txtNameSubject.Text = result
                 Return True
             End If
-            connect.Close()
+            'connect.Close()
         Catch ex As Exception
             Return False
         End Try
         Return False
     End Function
-
-    Private Sub btnView_Click(sender As Object, e As EventArgs)
-        ViewData.Show()
-    End Sub
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
         txtIDSubject.Text = ""
@@ -201,9 +250,24 @@ Public Class DataUpdate
         dgvSubject.Rows.Clear()
     End Sub
 
-
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        connect.Close()
         Me.Hide()
         ShowMenu.Show()
     End Sub
+
+    Private Sub ViewUser_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'If MessageBox.Show("Bạn có chắc muốn đóng chương trình?", "Warning", MessageBoxButtons.YesNo, _
+        '                   MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+        '    connect.Close()
+        '    End
+        'Else
+        '    e.Cancel = True
+        'End If
+        connect.Close()
+        Me.Hide()
+        ShowMenu.Show()
+    End Sub
+
+
 End Class

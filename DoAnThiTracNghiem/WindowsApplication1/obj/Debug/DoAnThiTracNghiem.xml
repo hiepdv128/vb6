@@ -15,6 +15,74 @@ DoAnThiTracNghiem
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.background">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_back_form">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_back_signup">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_button">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_button_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_end_test">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_info1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_info2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_info3">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_info4">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_khungthi">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_list_button">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_login">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_logo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_logo_epu">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_logo2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:DoAnThiTracNghiem.My.Resources.Resources.ic_time">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="T:DoAnThiTracNghiem.My.Resources.Resources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.

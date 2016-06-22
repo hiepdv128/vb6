@@ -48,13 +48,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -77,6 +75,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Answer.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Question.vb" />
     <Compile Include="Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
@@ -88,11 +91,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -133,9 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.vb</DependentUpon>
@@ -161,6 +159,57 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_back_form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_end_test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_button_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_info1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_info2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_khungthi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_info3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_list_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_back_signup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_info4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_logo_epu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_logo2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

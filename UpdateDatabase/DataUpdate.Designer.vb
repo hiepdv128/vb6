@@ -63,82 +63,91 @@ Partial Class DataUpdate
         '
         'dgvAnswer
         '
+        Me.dgvAnswer.AllowUserToAddRows = False
+        Me.dgvAnswer.AllowUserToDeleteRows = False
+        Me.dgvAnswer.AllowUserToResizeColumns = False
+        Me.dgvAnswer.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dgvAnswer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dgvAnswer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDQuestionAnswer, Me.IDAnswer, Me.ContentAnswer, Me.Correct})
-        Me.dgvAnswer.Location = New System.Drawing.Point(12, 313)
+        Me.dgvAnswer.Location = New System.Drawing.Point(81, 310)
         Me.dgvAnswer.Name = "dgvAnswer"
         Me.dgvAnswer.RowHeadersVisible = False
-        Me.dgvAnswer.Size = New System.Drawing.Size(1209, 329)
+        Me.dgvAnswer.Size = New System.Drawing.Size(1076, 329)
         Me.dgvAnswer.TabIndex = 1
         '
         'IDQuestionAnswer
         '
-        Me.IDQuestionAnswer.HeaderText = "ID Question"
+        Me.IDQuestionAnswer.HeaderText = "ID Câu hỏi"
         Me.IDQuestionAnswer.Name = "IDQuestionAnswer"
         Me.IDQuestionAnswer.ReadOnly = True
-        Me.IDQuestionAnswer.Width = 302
+        Me.IDQuestionAnswer.Width = 130
         '
         'IDAnswer
         '
-        Me.IDAnswer.HeaderText = "ID Answer"
+        Me.IDAnswer.HeaderText = "ID Đáp án"
         Me.IDAnswer.Name = "IDAnswer"
         Me.IDAnswer.ReadOnly = True
-        Me.IDAnswer.Width = 301
+        Me.IDAnswer.Width = 130
         '
         'ContentAnswer
         '
-        Me.ContentAnswer.HeaderText = "Content Answer"
+        Me.ContentAnswer.FillWeight = 500.0!
+        Me.ContentAnswer.HeaderText = "Nội dung đáp án"
         Me.ContentAnswer.Name = "ContentAnswer"
-        Me.ContentAnswer.Width = 302
+        Me.ContentAnswer.Width = 700
         '
         'Correct
         '
-        Me.Correct.HeaderText = "Correct"
+        Me.Correct.HeaderText = "True/false"
         Me.Correct.Name = "Correct"
-        Me.Correct.Width = 301
+        Me.Correct.Width = 130
         '
         'dgvQuestion
         '
+        Me.dgvQuestion.AllowUserToAddRows = False
+        Me.dgvQuestion.AllowUserToDeleteRows = False
         Me.dgvQuestion.AllowUserToOrderColumns = True
-        Me.dgvQuestion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvQuestion.AllowUserToResizeColumns = False
+        Me.dgvQuestion.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dgvQuestion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvQuestion.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDSubjectQuestion, Me.IDQuestion, Me.ContentQuestion})
         Me.dgvQuestion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
-        Me.dgvQuestion.Location = New System.Drawing.Point(535, 94)
+        Me.dgvQuestion.Location = New System.Drawing.Point(532, 94)
         Me.dgvQuestion.Name = "dgvQuestion"
         Me.dgvQuestion.RowHeadersVisible = False
         Me.dgvQuestion.RowHeadersWidth = 50
-        Me.dgvQuestion.Size = New System.Drawing.Size(686, 200)
+        Me.dgvQuestion.Size = New System.Drawing.Size(689, 200)
         Me.dgvQuestion.TabIndex = 2
         '
         'IDSubjectQuestion
         '
         Me.IDSubjectQuestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.IDSubjectQuestion.HeaderText = "ID Subject"
+        Me.IDSubjectQuestion.HeaderText = "ID Môn học"
         Me.IDSubjectQuestion.Name = "IDSubjectQuestion"
         Me.IDSubjectQuestion.ReadOnly = True
-        Me.IDSubjectQuestion.Width = 228
         '
         'IDQuestion
         '
         Me.IDQuestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.IDQuestion.HeaderText = "ID Question"
+        Me.IDQuestion.HeaderText = "ID Câu hỏi"
         Me.IDQuestion.Name = "IDQuestion"
         Me.IDQuestion.ReadOnly = True
-        Me.IDQuestion.Width = 227
         '
         'ContentQuestion
         '
         Me.ContentQuestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.ContentQuestion.HeaderText = "Content Question"
+        Me.ContentQuestion.HeaderText = "Nội dung câu hỏi"
         Me.ContentQuestion.Name = "ContentQuestion"
-        Me.ContentQuestion.Width = 228
+        Me.ContentQuestion.Width = 600
         '
         'dgvSubject
         '
+        Me.dgvSubject.AllowUserToAddRows = False
+        Me.dgvSubject.AllowUserToDeleteRows = False
+        Me.dgvSubject.AllowUserToResizeColumns = False
         Me.dgvSubject.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvSubject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvSubject.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dgvSubject.ColumnHeadersHeight = 21
         Me.dgvSubject.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDSubject, Me.NameSubject})
         Me.dgvSubject.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
@@ -151,19 +160,24 @@ Partial Class DataUpdate
         '
         'IDSubject
         '
-        Me.IDSubject.HeaderText = "ID Subject"
+        Me.IDSubject.FillWeight = 5.076141!
+        Me.IDSubject.HeaderText = "ID Môn học"
         Me.IDSubject.Name = "IDSubject"
         Me.IDSubject.ReadOnly = True
         '
         'NameSubject
         '
-        Me.NameSubject.HeaderText = "Name Subject"
+        Me.NameSubject.FillWeight = 194.9239!
+        Me.NameSubject.HeaderText = "Tên Môn học"
         Me.NameSubject.Name = "NameSubject"
+        Me.NameSubject.Width = 400
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.Label1.Location = New System.Drawing.Point(188, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 20)
@@ -173,35 +187,38 @@ Partial Class DataUpdate
         'btnExecute
         '
         Me.btnExecute.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExecute.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.btnExecute.Location = New System.Drawing.Point(799, 41)
         Me.btnExecute.Name = "btnExecute"
         Me.btnExecute.Size = New System.Drawing.Size(98, 26)
-        Me.btnExecute.TabIndex = 6
+        Me.btnExecute.TabIndex = 4
         Me.btnExecute.Text = "GO!"
         Me.btnExecute.UseVisualStyleBackColor = True
         '
         'txtIDSubject
         '
+        Me.txtIDSubject.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtIDSubject.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtIDSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIDSubject.Location = New System.Drawing.Point(299, 41)
         Me.txtIDSubject.Name = "txtIDSubject"
         Me.txtIDSubject.Size = New System.Drawing.Size(92, 26)
-        Me.txtIDSubject.TabIndex = 7
+        Me.txtIDSubject.TabIndex = 2
         '
         'btnOpen
         '
         Me.btnOpen.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOpen.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.btnOpen.Location = New System.Drawing.Point(799, 9)
         Me.btnOpen.Name = "btnOpen"
         Me.btnOpen.Size = New System.Drawing.Size(98, 26)
-        Me.btnOpen.TabIndex = 8
+        Me.btnOpen.TabIndex = 1
         Me.btnOpen.Text = "Open"
         Me.btnOpen.UseVisualStyleBackColor = True
         '
         'openFileDialog
         '
-        Me.openFileDialog.FileName = "OpenFileDialog"
-        Me.openFileDialog.Filter = "*.xls|*.xlsx"
+        Me.openFileDialog.Filter = "Excel Worksheets|*.xls"
         '
         'txtLinkFile
         '
@@ -218,15 +235,16 @@ Partial Class DataUpdate
         Me.txtNameSubject.Location = New System.Drawing.Point(517, 41)
         Me.txtNameSubject.Name = "txtNameSubject"
         Me.txtNameSubject.Size = New System.Drawing.Size(241, 26)
-        Me.txtNameSubject.TabIndex = 7
+        Me.txtNameSubject.TabIndex = 3
         '
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.btnSave.Location = New System.Drawing.Point(1014, 11)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(162, 56)
-        Me.btnSave.TabIndex = 9
+        Me.btnSave.TabIndex = 5
         Me.btnSave.Text = "Save to DB"
         Me.btnSave.UseVisualStyleBackColor = True
         '
@@ -238,7 +256,9 @@ Partial Class DataUpdate
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.Label2.Location = New System.Drawing.Point(188, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(94, 20)
@@ -248,7 +268,9 @@ Partial Class DataUpdate
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.Label3.Location = New System.Drawing.Point(402, 44)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(104, 20)
@@ -258,16 +280,19 @@ Partial Class DataUpdate
         'btnReset
         '
         Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.btnReset.Location = New System.Drawing.Point(918, 12)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(74, 52)
-        Me.btnReset.TabIndex = 13
+        Me.btnReset.TabIndex = 6
         Me.btnReset.Text = "Reset All"
         Me.btnReset.UseVisualStyleBackColor = True
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.ForeColor = System.Drawing.Color.Chocolate
         Me.Label4.Location = New System.Drawing.Point(299, 75)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(256, 13)
@@ -288,10 +313,11 @@ Partial Class DataUpdate
         '
         'btnBack
         '
-        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.btnBack.Location = New System.Drawing.Point(24, 12)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(105, 55)
+        Me.btnBack.Size = New System.Drawing.Size(80, 45)
         Me.btnBack.TabIndex = 15
         Me.btnBack.Text = "Trở về"
         Me.btnBack.UseVisualStyleBackColor = True
@@ -299,6 +325,8 @@ Partial Class DataUpdate
         'DataUpdate
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.BackgroundImage = Global.DemoProject.My.Resources.Resources.background
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1235, 642)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.Label4)
@@ -347,20 +375,20 @@ Partial Class DataUpdate
     Friend WithEvents txtLinkFile As System.Windows.Forms.TextBox
     Friend WithEvents txtNameSubject As System.Windows.Forms.TextBox
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents IDQuestionAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents IDAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ContentAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Correct As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents IDSubject As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NameSubject As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents IDSubjectQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents IDQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ContentQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FileSystemWatcher1 As System.IO.FileSystemWatcher
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnReset As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents btnBack As System.Windows.Forms.Button
+    Friend WithEvents IDQuestionAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents IDAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ContentAnswer As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Correct As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents IDSubjectQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents IDQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ContentQuestion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents IDSubject As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NameSubject As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

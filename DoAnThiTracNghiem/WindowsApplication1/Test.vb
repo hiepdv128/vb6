@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Math
 
 Public Class Test
     Friend user As String
@@ -7,7 +8,7 @@ Public Class Test
     Private IDSubject As String
     Private minute As Integer
     Private second As Integer
-    Private score As Integer
+    Private mark As Double
     Private isAutoNext As Boolean
     Private clicked As Integer
     Private isReview As Boolean
@@ -31,23 +32,42 @@ Public Class Test
         Me.second = 0
     End Sub
 
-    Private Sub test_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        connect.Open()
-        questionSelecteds.Capacity = 50
-        numOfQuestion = 50
-        IDSubject = "kthdc"
-        minute = 0
-        second = 4
-        score = 0
-        isAutoNext = False
-        clicked = 0
-        isReview = False
-
-        loadQuestion()
-        showButtonQuestion()
-        timer.Enabled = True
+    Private Sub test_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        If (Me.Visible) Then
+            connect.Open()
+            Me.user = SelectSubject.user
+            questionSelecteds.Capacity = 50
+            'numOfQuestion = 50
+            'IDSubject = "kthdc"
+            'minute = 0
+            'second = 4
+            mark = 0
+            isAutoNext = False
+            clicked = 0
+            isReview = False
+            loadInfo()
+            loadQuestion()
+            showButtonQuestion()
+            timer.Enabled = True
+        End If
 
     End Sub
+
+    Private Sub loadInfo()
+        Dim cmd As New SqlCommand("SELECT NAME,SEX,BIRTHDAY FROM ALLUSER WHERE USERNAME='" & user & "'", connect)
+        Dim reader As SqlDataReader = cmd.ExecuteReader
+        'Try
+        reader.Read()
+        lblName.Text = reader.GetValue(0).ToString
+        lblSex.Text = reader.GetValue(1).ToString
+        lblBirthday.Text = reader.GetValue(2).ToString().Remove(10, 12)
+
+        lblNotCheck.Text = numOfQuestion
+
+        Dim cmd2 As New SqlCommand("SELECT NAMESUBJECT FROM SUBJECT", connect)
+        lblNameSubject.Text = cmd2.ExecuteScalar.ToString
+    End Sub
+
     'lay tat ca id cau hoi trung voi mon hoc da chon
     'Private Sub loadAllIDQuestion()
     '    Dim sql = "select idquestion from Question where IDSubject = '" + IDSubject + "'"
@@ -150,8 +170,6 @@ Public Class Test
     End Sub
 
     Private Sub showQuestion(position As Integer)
-
-        grbQuestion.Text = "Câu hỏi " & (position + 1)
 
         Dim question As Question = questionSelecteds.Item(position)
         'Show content
@@ -276,9 +294,10 @@ Public Class Test
 
     Private Sub endTest()
         timer.Enabled = False
-        btnEndTest.Enabled = False
         cbAutoNext.Enabled = False
         isReview = True
+        btnEndTest.Visible = False
+        btnBack.Visible = True
         flpButtonQues.Controls.Clear()
 
         Dim temp As Integer
@@ -292,11 +311,21 @@ Public Class Test
             End If
 
             If (correct) Then
-                Me.score += 1
+                Me.mark += 1
             End If
             addReviewButton(temp + 1, correct)
         Next
+        mark = Round(10 * mark / numOfQuestion)
+        'Save to database
+        Dim query As String = "INSERT INTO MARK VALUES(@USER,@IDSUBJECT,@MARK,@TIME)"
+        Dim command As New SqlCommand(query, connect)
+        command.Parameters.AddWithValue("@USER", user)
+        command.Parameters.AddWithValue("@IDSUBJECT", IDSubject)
+        command.Parameters.AddWithValue("@MARK", mark)
+        command.Parameters.AddWithValue("@TIME", Date.Now.ToString("MM/dd/yyyy"))
+        command.ExecuteNonQuery()
 
+        lblTimeOut.Text = "Điểm : " & mark
 
         'click first
         Dim firstButton As Button = DirectCast(flpButtonQues.Controls.Item(0), Button)
@@ -332,6 +361,10 @@ Public Class Test
         rbtAnswerB.ForeColor = Color.Black
         rbtAnswerC.ForeColor = Color.Black
         rbtAnswerD.ForeColor = Color.Black
+        rbtAnswerA.Checked = False
+        rbtAnswerB.Checked = False
+        rbtAnswerC.Checked = False
+        rbtAnswerD.Checked = False
     End Sub
 
     'Review a question
@@ -359,7 +392,6 @@ Public Class Test
         rbtAnswerB.Text = question.getAnswers.Item(1).getContent
         rbtAnswerC.Text = question.getAnswers.Item(2).getContent
         rbtAnswerD.Text = question.getAnswers.Item(3).getContent
-        grbQuestion.Text = "Câu hỏi " & current + 1
 
         'Reset color before
         Me.resetRadioButton()
@@ -396,7 +428,6 @@ Public Class Test
 
     End Sub
 
-
     Private Sub btnPrevious_Click(sender As Object, e As EventArgs) Handles btnPrevious.Click
         If (current > 0) Then
             Dim bt As Button = DirectCast(flpButtonQues.Controls.Item(current - 1), Button)
@@ -423,12 +454,25 @@ Public Class Test
     End Sub
 
     Private Sub Test_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MessageBox.Show("Bạn muốn thoát ứng dụng, điều này đồng nghĩa hủy kết quả thi?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-            connect.Close()
-            Environment.Exit(1)
+        If (Not isReview) Then
+            If MessageBox.Show("Bạn muốn thoát ứng dụng? Kết quả đến thời điểm hiện tại vẫn sẽ được tính.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                endTest()
+                connect.Close()
+                End
+            Else
+                e.Cancel = True
+            End If
         Else
-            e.Cancel = True
+            Me.Hide()
+            SelectSubject.Show()
         End If
+        
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        connect.Close()
+        Me.Hide()
+        SelectSubject.Show()
     End Sub
 
 End Class

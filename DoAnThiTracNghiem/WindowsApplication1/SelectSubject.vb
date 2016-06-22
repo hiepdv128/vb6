@@ -4,11 +4,12 @@ Public Class SelectSubject
     Private connect As New SqlConnection("Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True;MultipleActiveResultSets=True")
     Friend user As String
 
-    Private Sub selectSubject_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.CenterToScreen()
-        connect.Open()
-        user = "a"
-        loadDataToFrom()
+    Private Sub selectSubject_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        If (Me.Visible) Then
+            connect.Open()
+            Me.user = Login.txtUser.Text
+            loadDataToFrom()
+        End If
     End Sub
 
     Private Sub loadDataToFrom()
@@ -25,15 +26,14 @@ Public Class SelectSubject
         'Load info of user
         Dim cmd As New SqlCommand("select name,sex,birthday from alluser where username='" & user & "'", connect)
         Dim reader As SqlDataReader = cmd.ExecuteReader
-        Try
-            reader.Read()
-            lblName.Text = reader.GetValue(0).ToString
-            lblSex.Text = reader.GetValue(1).ToString
-            lblBirthday.Text = reader.GetValue(2).ToString().Remove(8, 12)
-        Catch ex As Exception
-            MsgBox("Lấy dữ liệu lỗi!")
-        End Try
-
+        'Try
+        reader.Read()
+        lblName.Text = reader.GetValue(0).ToString
+        lblSex.Text = reader.GetValue(1).ToString
+        lblBirthday.Text = reader.GetValue(2).ToString().Remove(10, 12)
+        'Catch ex As Exception
+        '    MsgBox("Lấy dữ liệu lỗi!")
+        'End Try
         adapter = Nothing
         cmd = Nothing
     End Sub
@@ -80,7 +80,6 @@ Public Class SelectSubject
     Private Sub SelectSubject_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If MessageBox.Show("Bạn muốn thoát ứng dụng ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             connect.Close()
-            'Application.Exit()
             End
         Else
             e.Cancel = True
@@ -96,11 +95,12 @@ Public Class SelectSubject
                 Return
             End If
 
-            If MessageBox.Show("Bạn đã chắc chắn bắt đầu thi? Nếu muốn đổi môn thi hãy nhấn Cancel", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            If MessageBox.Show("Bạn đã chắc chắn bắt đầu thi? Nếu muốn đổi môn thi hãy nhấn NO", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 Test.setNumOfQuestion(Integer.Parse(txtNumOfQuestion.Text))
                 Test.setTime(Integer.Parse(txtMinute.Text))
                 Test.setIDSubject(cmbSubject.SelectedValue)
-                Test.lblSubjectName.Text = cmbSubject.Text
+                Test.lblNameSubject.Text = cmbSubject.Text
+                connect.Close()
                 Test.Show()
                 Me.Hide()
             End If
@@ -112,14 +112,16 @@ Public Class SelectSubject
     End Sub
 
     Private Sub lblThanhTich_Click(sender As Object, e As EventArgs) Handles lblThanhTich.Click
-        Dim cmd As New SqlCommand("select id from mark where username ")
+        connect.Close()
         Achievement.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        connect.Close()
         Me.Hide()
         Me.user = ""
         Login.Show()
     End Sub
+
 End Class

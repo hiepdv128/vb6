@@ -42,36 +42,34 @@ Public Class SignUp
         txtName.Text = ""
     End Sub
 
-
-
     Private Sub btnCompeleteSignup_Click(sender As Object, e As EventArgs) Handles btnCompeleteSignup.Click
-        Dim userSignUp As String = txtUser.Text.Trim
-        Dim passSignUp As String = txtPass.Text.Trim
+        Dim user As String = txtUser.Text.Trim
+        Dim password As String = txtPass.Text.Trim
         Dim passReturn As String = txtPassReturn.Text.Trim
-        Dim nameSignUp As String = txtName.Text.Trim
+        Dim fullName As String = txtName.Text.Trim
         Dim sex As String = cmbSex.Text
-        Dim birthdaySignUp As String = cmbMonth.Text & "/" & cmbDay.Text & "/" & cmbYear.Text
+        Dim birthday As String = cmbMonth.Text & "/" & cmbDay.Text & "/" & cmbYear.Text
 
-        If (Not passSignUp.Equals("")) And (Not userSignUp.Equals("")) _
-            And (Not passReturn.Equals("")) And (Not nameSignUp.Equals("")) Then
+        If (Not password.Equals("")) And (Not user.Equals("")) _
+            And (Not passReturn.Equals("")) And (Not fullName.Equals("")) Then
 
             Dim cmdCheck As New SqlCommand("select password from alluser where username = @username", connect)
             cmdCheck.Parameters.AddWithValue("@username", txtUser.Text)
             Dim result As String = cmdCheck.ExecuteScalar()
 
-            If (String.IsNullOrEmpty(result) And (passSignUp.Equals(passReturn)) _
-                And (Not userSignUp.Contains(" ")) And (Not passSignUp.Contains(" "))) Then
+            If (String.IsNullOrEmpty(result) And (password.Equals(passReturn, StringComparison.Ordinal)) _
+                And (Not user.Contains(" ")) And (Not password.Contains(" "))) Then
                 Dim cmdInsert As New SqlCommand("INSERT INTO ALLUSER VALUES (@user,@password,@name,@sex,@birthday)", connect)
-                cmdInsert.Parameters.AddWithValue("@user", userSignUp)
-                cmdInsert.Parameters.AddWithValue("@password", passSignUp)
-                cmdInsert.Parameters.AddWithValue("@name", nameSignUp)
-                cmdInsert.Parameters.AddWithValue("@sex", nameSignUp)
-                cmdInsert.Parameters.AddWithValue("@birthday", birthdaySignUp)
+                cmdInsert.Parameters.AddWithValue("@user", user)
+                cmdInsert.Parameters.AddWithValue("@password", password)
+                cmdInsert.Parameters.AddWithValue("@name", fullName)
+                cmdInsert.Parameters.AddWithValue("@sex", sex)
+                cmdInsert.Parameters.AddWithValue("@birthday", birthday)
                 cmdInsert.ExecuteNonQuery()
 
-                MsgBox("Đăng ký thành công tài khooản :" & userSignUp)
-                Login.txtUser.Text = userSignUp
-                Login.txtPass.Text = passSignUp
+                MsgBox("Đăng ký thành công tài khooản :" & user)
+                Login.txtUser.Text = user
+                Login.txtPass.Text = password
                 Me.Hide()
                 Login.Show()
 
@@ -80,13 +78,13 @@ Public Class SignUp
                 txtUser.Text = ""
                 txtUser.Focus()
 
-            ElseIf (userSignUp.Contains(" ") Or passSignUp.Contains(" ")) Then
+            ElseIf (user.Contains(" ") Or password.Contains(" ")) Then
                 MsgBox("Tên tài khoản hoặc mật khẩu không chứa dấu SPACE")
                 txtUser.Text = ""
                 txtPassReturn.Text = ""
                 txtPass.Text = ""
                 txtUser.Focus()
-            ElseIf (Not passSignUp.Equals(passReturn)) Then
+            ElseIf (Not password.Equals(passReturn)) Then
                 MsgBox("Mật khẩu nhập lại không giống nhau! Xin nhập lại")
                 txtPassReturn.Text = ""
                 txtPass.Text = ""
@@ -100,15 +98,14 @@ Public Class SignUp
     End Sub
 
     Private Sub SignUp_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MessageBox.Show("Bạn muốn thoát ứng dụng?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-            Try
-                End
-            Catch ex As Exception
-                Stop
-            End Try
-        Else
-            e.Cancel = True
-        End If
+        connect.Close()
+        Me.Hide()
+        Login.Show()
     End Sub
 
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        connect.Close()
+        Me.Hide()
+        Login.Show()
+    End Sub
 End Class
