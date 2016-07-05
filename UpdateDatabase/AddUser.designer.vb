@@ -43,7 +43,9 @@ Partial Class AddUser
         'userSignUp
         '
         Me.userSignUp.AutoSize = True
+        Me.userSignUp.BackColor = System.Drawing.Color.Transparent
         Me.userSignUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.userSignUp.ForeColor = System.Drawing.Color.IndianRed
         Me.userSignUp.Location = New System.Drawing.Point(85, 139)
         Me.userSignUp.Name = "userSignUp"
         Me.userSignUp.Size = New System.Drawing.Size(111, 20)
@@ -53,7 +55,9 @@ Partial Class AddUser
         'passwordSignUp
         '
         Me.passwordSignUp.AutoSize = True
+        Me.passwordSignUp.BackColor = System.Drawing.Color.Transparent
         Me.passwordSignUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.passwordSignUp.ForeColor = System.Drawing.Color.IndianRed
         Me.passwordSignUp.Location = New System.Drawing.Point(86, 184)
         Me.passwordSignUp.Name = "passwordSignUp"
         Me.passwordSignUp.Size = New System.Drawing.Size(81, 20)
@@ -63,7 +67,9 @@ Partial Class AddUser
         'nameSignUp
         '
         Me.nameSignUp.AutoSize = True
+        Me.nameSignUp.BackColor = System.Drawing.Color.Transparent
         Me.nameSignUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nameSignUp.ForeColor = System.Drawing.Color.IndianRed
         Me.nameSignUp.Location = New System.Drawing.Point(85, 280)
         Me.nameSignUp.Name = "nameSignUp"
         Me.nameSignUp.Size = New System.Drawing.Size(130, 20)
@@ -73,7 +79,9 @@ Partial Class AddUser
         'birthdaySignUp
         '
         Me.birthdaySignUp.AutoSize = True
+        Me.birthdaySignUp.BackColor = System.Drawing.Color.Transparent
         Me.birthdaySignUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.birthdaySignUp.ForeColor = System.Drawing.Color.IndianRed
         Me.birthdaySignUp.Location = New System.Drawing.Point(84, 392)
         Me.birthdaySignUp.Name = "birthdaySignUp"
         Me.birthdaySignUp.Size = New System.Drawing.Size(84, 20)
@@ -142,7 +150,9 @@ Partial Class AddUser
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.IndianRed
         Me.Label1.Location = New System.Drawing.Point(85, 231)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(142, 20)
@@ -180,7 +190,9 @@ Partial Class AddUser
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.IndianRed
         Me.Label2.Location = New System.Drawing.Point(86, 330)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(73, 20)
@@ -201,6 +213,7 @@ Partial Class AddUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.DemoProject.My.Resources.Resources.background
         Me.ClientSize = New System.Drawing.Size(722, 548)
         Me.Controls.Add(Me.cmbSex)
         Me.Controls.Add(Me.btnReset)

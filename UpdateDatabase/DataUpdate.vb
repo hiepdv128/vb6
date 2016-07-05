@@ -122,11 +122,6 @@ Public Class DataUpdate
                     btnReset.PerformClick()
                 End Try
 
-                If (dgvQuestion.RowCount = 0 OrElse dgvAnswer.RowCount = 0) Then
-                    MessageBox.Show("Bạn đã nhập vào file không đúng định dạng!", "Lưu ý")
-                    btnReset.PerformClick()
-                End If
-
             Else
                 MessageBox.Show("Vui lòng nhập tên môn học", "Lưu ý")
                 txtNameSubject.Focus()
@@ -210,7 +205,7 @@ Public Class DataUpdate
         txtLinkFile.Text = ""
         txtNameSubject.Text = ""
 
-        MessageBox.Show("Records inserted.")
+        MessageBox.Show("Thêm thành công!")
     End Sub
 
     Function getLastIDQuestion() As Integer
@@ -269,5 +264,7 @@ Public Class DataUpdate
         ShowMenu.Show()
     End Sub
 
+    Private Sub DataUpdate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class

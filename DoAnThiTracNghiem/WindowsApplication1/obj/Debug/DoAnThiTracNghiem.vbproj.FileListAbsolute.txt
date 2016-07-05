@@ -12,8 +12,8 @@ F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.SignUp.resources
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.Test.resources
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.SelectSubject.resources
-F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.Achievement.resources
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.vbproj.GenerateResource.Cache
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.exe
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.xml
 F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.pdb
+F:\Github\vb6\DoAnThiTracNghiem\WindowsApplication1\obj\Debug\DoAnThiTracNghiem.ThanhTich.resources

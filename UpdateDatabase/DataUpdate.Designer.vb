@@ -218,7 +218,7 @@ Partial Class DataUpdate
         '
         'openFileDialog
         '
-        Me.openFileDialog.Filter = "Excel Worksheets|*.xls"
+        Me.openFileDialog.Filter = "Excel Worksheets|*.xls;*.xlsx"
         '
         'txtLinkFile
         '

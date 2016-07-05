@@ -42,8 +42,12 @@ Partial Class SelectSubject
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'cmbSubject
@@ -154,7 +158,7 @@ Partial Class SelectSubject
         '
         Me.lblBirthday.AutoSize = True
         Me.lblBirthday.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBirthday.Location = New System.Drawing.Point(89, 74)
+        Me.lblBirthday.Location = New System.Drawing.Point(96, 73)
         Me.lblBirthday.Name = "lblBirthday"
         Me.lblBirthday.Size = New System.Drawing.Size(60, 23)
         Me.lblBirthday.TabIndex = 8
@@ -164,7 +168,7 @@ Partial Class SelectSubject
         '
         Me.lblSex.AutoSize = True
         Me.lblSex.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSex.Location = New System.Drawing.Point(89, 103)
+        Me.lblSex.Location = New System.Drawing.Point(96, 102)
         Me.lblSex.Name = "lblSex"
         Me.lblSex.Size = New System.Drawing.Size(60, 23)
         Me.lblSex.TabIndex = 8
@@ -184,7 +188,7 @@ Partial Class SelectSubject
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(8, 74)
+        Me.Label9.Location = New System.Drawing.Point(15, 73)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(86, 23)
         Me.Label9.TabIndex = 8
@@ -194,7 +198,7 @@ Partial Class SelectSubject
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(16, 103)
+        Me.Label10.Location = New System.Drawing.Point(23, 102)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(78, 23)
         Me.Label10.TabIndex = 8
@@ -264,6 +268,39 @@ Partial Class SelectSubject
         Me.Panel3.Size = New System.Drawing.Size(575, 228)
         Me.Panel3.TabIndex = 14
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightGreen
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Location = New System.Drawing.Point(63, 12)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(322, 169)
+        Me.Panel2.TabIndex = 15
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Lucida Handwriting", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(70, 4)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(146, 27)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Hướng dẫn "
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(15, 50)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(304, 90)
+        Me.Label7.TabIndex = 0
+        Me.Label7.Text = "- Bạn có thể chọn môn thi tùy ý muốn" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Hãy nhập số câu hỏi và thời gian trong" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+    "phạm vi cho phép" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Bấm vào ""Thành tích cá nhân"" để xem" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " điểm các lần thi trước" & _
+    "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'SelectSubject
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -271,16 +308,21 @@ Partial Class SelectSubject
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(819, 489)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnBeginTest)
+        Me.MaximizeBox = False
         Me.Name = "SelectSubject"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Chọn bài thi"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -303,4 +345,7 @@ Partial Class SelectSubject
     Friend WithEvents btnLogout As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

@@ -291,6 +291,7 @@ Partial Class SignUp
         Me.Controls.Add(Me.btnCompeleteSignup)
         Me.MaximizeBox = False
         Me.Name = "SignUp"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SignUp"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

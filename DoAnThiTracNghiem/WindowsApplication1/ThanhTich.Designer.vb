@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Achievement
+Partial Class ThanhTich
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -33,6 +33,11 @@ Partial Class Achievement
         '
         'dgvAchieve
         '
+        Me.dgvAchieve.AllowUserToAddRows = False
+        Me.dgvAchieve.AllowUserToDeleteRows = False
+        Me.dgvAchieve.AllowUserToOrderColumns = True
+        Me.dgvAchieve.AllowUserToResizeColumns = False
+        Me.dgvAchieve.AllowUserToResizeRows = False
         Me.dgvAchieve.BackgroundColor = System.Drawing.Color.White
         Me.dgvAchieve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAchieve.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.subject, Me.Mark, Me.dateTime})
@@ -74,6 +79,7 @@ Partial Class Achievement
         Me.subject.DataPropertyName = "NameSubject"
         Me.subject.HeaderText = "Môn học"
         Me.subject.Name = "subject"
+        Me.subject.ReadOnly = True
         Me.subject.Width = 150
         '
         'Mark
@@ -81,6 +87,7 @@ Partial Class Achievement
         Me.Mark.DataPropertyName = "Mark"
         Me.Mark.HeaderText = "Điểm"
         Me.Mark.Name = "Mark"
+        Me.Mark.ReadOnly = True
         Me.Mark.Width = 60
         '
         'dateTime
@@ -88,9 +95,10 @@ Partial Class Achievement
         Me.dateTime.DataPropertyName = "TimeTest"
         Me.dateTime.HeaderText = "Ngày thi"
         Me.dateTime.Name = "dateTime"
+        Me.dateTime.ReadOnly = True
         Me.dateTime.Width = 150
         '
-        'Achievement
+        'ThanhTich
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -101,7 +109,9 @@ Partial Class Achievement
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvAchieve)
         Me.ForeColor = System.Drawing.Color.DarkBlue
-        Me.Name = "Achievement"
+        Me.MaximizeBox = False
+        Me.Name = "ThanhTich"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Thành tích cá nhân"
         CType(Me.dgvAchieve, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

@@ -451,7 +451,7 @@ Partial Class Test
         Me.Controls.Add(Me.btnPrevious)
         Me.Controls.Add(Me.cbAutoNext)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.MinimizeBox = False
+        Me.MaximizeBox = False
         Me.Name = "Test"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Kiểm Tra"

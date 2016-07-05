@@ -112,9 +112,14 @@ Public Class SelectSubject
     End Sub
 
     Private Sub lblThanhTich_Click(sender As Object, e As EventArgs) Handles lblThanhTich.Click
-        connect.Close()
-        Achievement.Show()
-        Me.Hide()
+        Dim command As New SqlCommand("select * from mark where username = '" & user & "'", connect)
+        If (String.IsNullOrEmpty(command.ExecuteScalar)) Then
+            MessageBox.Show("Bạn chưa thi lần nào, hãy vào thi ngay!", "Nhắc nhở")
+        Else
+            connect.Close()
+            ThanhTich.Show()
+            Me.Hide()
+        End If
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click

@@ -165,7 +165,7 @@ Public Class ViewQuestion
     Private Sub dgvSubjectView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSubjectView.RowHeaderMouseDoubleClick
         Dim count As Integer = dgvSubjectView.RowCount
         Dim dvQuestion, dvAnswer As DataView
-        If (e.RowIndex < count - 1) Then
+        If (e.RowIndex < count) Then
             Dim idSubjectFocus As String = dgvSubjectView.Rows(e.RowIndex).Cells(0).Value.ToString
             dvQuestion = New DataView(dtbQuestion, "IDSubject = '" & idSubjectFocus & "'", "idquestion asc", DataViewRowState.CurrentRows)
             dvAnswer = New DataView(dtbAnswer, "IDSubject = '" & idSubjectFocus & "'", "idquestion asc", DataViewRowState.CurrentRows)
@@ -176,7 +176,7 @@ Public Class ViewQuestion
 
     Private Sub dgvQuestionView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvQuestionView.RowHeaderMouseDoubleClick
         Dim count As Integer = dgvQuestionView.RowCount
-        If (e.RowIndex < count - 1) Then
+        If (e.RowIndex < count) Then
             Dim idQuestionFocus As String = dgvQuestionView.Rows(e.RowIndex).Cells(1).Value.ToString
             Dim idSubjectOfQuestion As String = dgvQuestionView.Rows(e.RowIndex).Cells(0).Value.ToString
             Dim dvSubject, dvAnswer As DataView
@@ -189,7 +189,7 @@ Public Class ViewQuestion
 
     Private Sub dgvAnswerView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvAnswerView.RowHeaderMouseDoubleClick
         Dim count As Integer = dgvAnswerView.RowCount
-        If (e.RowIndex < count - 1) Then
+        If (e.RowIndex < count) Then
             Dim dvSubject, dvQuestion As DataView
             Dim row As DataGridViewRow = dgvAnswerView.Rows(e.RowIndex)
             Dim idQuestion As String = row.Cells(1).Value.ToString
@@ -329,23 +329,27 @@ Public Class ViewQuestion
         Dim dataAnswer As New DataSet
         Dim dataSubject As New DataSet
 
-        sql = "SELECT * FROM QUESTION WHERE IDQUESTION = " & idQuestionFocus
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataQuestion)
-        dgvQuestionView.DataSource = dataQuestion.Tables(0)
+        Try
+            sql = "SELECT * FROM QUESTION WHERE IDQUESTION = " & idQuestionFocus
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataQuestion)
+            dgvQuestionView.DataSource = dataQuestion.Tables(0)
 
-        sql = "SELECT * FROM SUBJECT WHERE IDSUBJECT = '" & idSubjectFocus & "'"
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataSubject)
-        dgvSubjectView.DataSource = dataSubject.Tables(0)
+            sql = "SELECT * FROM SUBJECT WHERE IDSUBJECT = '" & idSubjectFocus & "'"
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataSubject)
+            dgvSubjectView.DataSource = dataSubject.Tables(0)
 
-        sql = "SELECT * FROM ANSWER WHERE IDQUESTION = " & idQuestionFocus
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataAnswer)
-        dgvAnswerView.DataSource = dataAnswer.Tables(0)
+            sql = "SELECT * FROM ANSWER WHERE IDQUESTION = " & idQuestionFocus
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataAnswer)
+            dgvAnswerView.DataSource = dataAnswer.Tables(0)
+        Catch ex As Exception
+            MessageBox.Show("Dữ liệu bạn nhập không khớp với bản ghi nào!", "Thông báo")
+        End Try
     End Sub
     ' chua hoan thien
     Private Sub filterContentQuestion(contentQuestion As String)
@@ -385,24 +389,33 @@ Public Class ViewQuestion
         Dim dataSubject As New DataSet
         Dim dataAnswer As New DataSet
 
-        sql = "SELECT * FROM QUESTION WHERE IDQUESTION = " & idQuestion
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataQuestion)
-        dgvQuestionView.DataSource = dataQuestion.Tables(0)
+        If (IsNumeric(idQuestion)) Then
 
-        sql = "SELECT * FROM SUBJECT WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM QUESTION WHERE IDQUESTION = " & idQuestion & ")"
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataSubject)
-        dgvSubjectView.DataSource = dataSubject.Tables(0)
+        End If
 
-        sql = "SELECT * FROM ANSWER WHERE " & _
-            "IDQUESTION IN (SELECT IDQUESTION FROM QUESTION WHERE IDQUESTION = " & idQuestion & ")"
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataAnswer)
-        dgvAnswerView.DataSource = dataAnswer.Tables(0)
+        Try
+            sql = "SELECT * FROM QUESTION WHERE IDQUESTION = " & idQuestion
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataQuestion)
+            dgvQuestionView.DataSource = dataQuestion.Tables(0)
+
+            sql = "SELECT * FROM SUBJECT WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM QUESTION WHERE IDQUESTION = " & idQuestion & ")"
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataSubject)
+            dgvSubjectView.DataSource = dataSubject.Tables(0)
+
+            sql = "SELECT * FROM ANSWER WHERE " & _
+                "IDQUESTION IN (SELECT IDQUESTION FROM QUESTION WHERE IDQUESTION = " & idQuestion & ")"
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataAnswer)
+            dgvAnswerView.DataSource = dataAnswer.Tables(0)
+        Catch ex As Exception
+            MessageBox.Show("Dữ liệu bạn nhập không khớp với bản ghi nào!", "Thông báo")
+        End Try
+
     End Sub
 
     Private Sub filterNameSubjectIdQuestion(nameSubject As String, idQuestion As String)
@@ -413,26 +426,31 @@ Public Class ViewQuestion
         Dim dataQuestion As New DataSet
         Dim dataAnswer As New DataSet
 
-        sql = "SELECT * FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%'"
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataSubject)
-        dgvSubjectView.DataSource = dataSubject.Tables(0)
+        Try
+            sql = "SELECT * FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%'"
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataSubject)
+            dgvSubjectView.DataSource = dataSubject.Tables(0)
 
-        sql = "SELECT * FROM QUESTION WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%')" & _
-             "AND IDQUESTION = " & idQuestion
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataQuestion)
-        dgvQuestionView.DataSource = dataQuestion.Tables(0)
+            sql = "SELECT * FROM QUESTION WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%')" & _
+                 "AND IDQUESTION = " & idQuestion
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataQuestion)
+            dgvQuestionView.DataSource = dataQuestion.Tables(0)
 
-        sql = "SELECT * FROM ANSWER WHERE IDQUESTION IN (SELECT IDQUESTION FROM QUESTION " & _
-            "WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%')" & _
-             "AND IDQUESTION = " & idQuestion & ")"
-        cmd = New SqlCommand(sql, connect)
-        adapter.SelectCommand = cmd
-        adapter.Fill(dataAnswer)
-        dgvAnswerView.DataSource = dataAnswer.Tables(0)
+            sql = "SELECT * FROM ANSWER WHERE IDQUESTION IN (SELECT IDQUESTION FROM QUESTION " & _
+                "WHERE IDSUBJECT IN (SELECT IDSUBJECT FROM SUBJECT WHERE NAMESUBJECT LIKE N'%" & nameSubject & "%')" & _
+                 "AND IDQUESTION = " & idQuestion & ")"
+            cmd = New SqlCommand(sql, connect)
+            adapter.SelectCommand = cmd
+            adapter.Fill(dataAnswer)
+            dgvAnswerView.DataSource = dataAnswer.Tables(0)
+        Catch ex As Exception
+            MessageBox.Show("Dữ liệu bạn nhập không khớp với bản ghi nào!", "Thông báo")
+        End Try
+
     End Sub
 
     Private Sub filterIdSubjectContentQuestion(idSubject As String, contentQuestion As String)
@@ -591,7 +609,7 @@ Public Class ViewQuestion
         End If
 
         adapter.SelectCommand = cmd
-        adapter.Fill(data, "list")
+        adapter.Fill(data)
         table = data.Tables(0)
         count = table.Rows.Count
         For i = 0 To count - 1
